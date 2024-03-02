@@ -1,0 +1,70 @@
+.produto_container{
+    width: 30%;
+    background-color: #fff;
+    margin-bottom: 1.5em;
+    transition: 0.7s;
+    position: relative;
+    margin: auto;
+}
+.produto_container{
+    align-items: center;
+}
+.informacoes{
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+    
+}
+.imagem_produto{
+    width: 85%;
+    margin: auto;
+    display: block;
+}
+
+.produto_opcoes{
+    position:absolute;
+    bottom: 1em;
+    right: 1em;
+}
+.texto{
+    width: 650px;
+    font-size: 16px; 
+    line-height: 1.5;
+}
+
+.btn{
+    border: none;
+    background-color: #f5d7a9;
+    width: 3.5em;
+    height: 3.5em;
+    border-radius: 100%;
+    transition: 0.5s;
+}
+.btn img{
+    width: 25px;    
+}
+.invisivel {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease; /* Transição suave para opacidade */
+    position: absolute; /* Posição absoluta para posicionamento preciso */
+    bottom: -100%; /* Inicialmente, posicionado fora do contêiner */
+    left: 0;
+    width: 100%; /* Garante que ocupe toda a largura do contêiner pai */
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo para destacar o texto */
+    padding: 10px; /* Espaçamento interno */
+    box-sizing: border-box; /* Certifique-se de que o preenchimento não aumente a largura */
+}
+
+.produto_container:hover{
+    width: 32%;
+}
+
+.produto_container:hover .invisivel {
+    opacity: 1; /* Opacidade 1 ao passar o mouse */
+    visibility: visible; /* Visibilidade visível ao passar o mouse */
+    bottom: 0; /* Move para dentro do contêiner */
+}
+
+.btn:hover{
+    background-color: #f5bf6f;
+}

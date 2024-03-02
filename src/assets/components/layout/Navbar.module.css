@@ -1,0 +1,35 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    background-color: #FFE9C7;
+    padding: 1em;
+}
+
+.list{
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.logo_imagem{
+    width: 5.9em;
+}
+
+.logo_escrita{
+    width: 17em;
+    margin-bottom: 1em;
+}
+
+
+.item{
+    margin-right: 2em;
+}
+
+.item a{
+    text-decoration: none;
+    color: #222;
+}
+
+.item a:hover{
+    color: #fdb420;
+}

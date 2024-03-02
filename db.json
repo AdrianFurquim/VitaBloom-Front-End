@@ -1,0 +1,51 @@
+{
+  "projects": [
+    {
+      "name": "Connect Dengue ",
+      "budget": "1000000",
+      "category": {
+        "id": "2",
+        "name": "Desenvolvimento"
+      },
+      "cost": 0,
+      "services": [],
+      "id": 1
+    },
+    {
+      "name": "Connect Dengue ",
+      "budget": "70000",
+      "category": {
+        "id": "3",
+        "name": "Design"
+      },
+      "cost": 100,
+      "services": [
+        {
+          "name": "QuiApp",
+          "cost": "100",
+          "description": "sdads",
+          "id": "9aefab4a-ba76-4040-ad15-5cb761515c4b"
+        }
+      ],
+      "id": 2
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Infra"
+    },
+    {
+      "id": 2,
+      "name": "Desenvolvimento"
+    },
+    {
+      "id": 3,
+      "name": "Design"
+    },
+    {
+      "id": 4,
+      "name": "Planejamento"
+    }
+  ]
+}
