@@ -12,6 +12,7 @@ import Footer from "./assets/components/layout/Footer";
 import Project from "./assets/components/pages/Project";
 import Catalogo from "./assets/components/pages/Catalogo";
 import ProdutoDencricao from "./assets/components/pages/ProdutoDencricao";
+import Carrinho from "./assets/components/pages/Carrinho";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/project/:id" element={<Project />} />
           <Route path="/catalogo" element={<Catalogo />} />
           <Route path="/produtodencricao" element={<ProdutoDencricao />} />
+          <Route path="/carrinho" element={<Carrinho/>} />
         </Routes>
       </Conteiner>
       <Footer/>

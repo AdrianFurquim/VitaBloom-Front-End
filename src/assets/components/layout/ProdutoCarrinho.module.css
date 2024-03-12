@@ -1,0 +1,21 @@
+.imagem_produto{
+    width: 15%;
+    margin-right: 2em;
+}
+.produto_carrinho_container{
+    width: 100%;
+    display: flex;
+    background-color: white;
+    margin-top: 2em;
+    transition: 0.6s;
+}
+.descricao_produto{
+    display: flex;
+    justify-content:space-around;
+    width: 100%;
+    align-items: center;
+}
+
+.produto_carrinho_container:hover{
+    width: 102%;
+}

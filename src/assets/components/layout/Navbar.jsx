@@ -23,7 +23,7 @@ export default function Navbar() {
                         <Link to="/catalogo">Produtos</Link>
                     </li>
                     <li className={styles.item}>
-                        <Link to="/company">Empresa</Link>
+                        <Link to="/carrinho">Carrinho</Link>
                     </li>
                     <li className={styles.item}>
                         <Link to="/contact">Contato</Link>
