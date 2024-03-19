@@ -1,7 +1,13 @@
-.produtos_container{
+.produtos_container .teste{
     display: flex;
-    justify-content:center;
-    flex-wrap: wrap;
-    gap: 2em;
+    
+}
+
+.produtos_container{
+    width: 100%;
     margin-top: 1em;
+}
+.teste{
+    justify-content: space-around;
+    
 }

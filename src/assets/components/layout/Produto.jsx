@@ -3,6 +3,8 @@ import carrinho from "../../img/carrinho-de-compras.png"
 
 
 export default function Produto({imagem, nome, valor, descricao}){
+
+
     return(
         <>
            <div className={styles.produto_container}>
