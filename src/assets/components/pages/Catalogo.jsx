@@ -44,31 +44,29 @@ export default function Catalogo(){
     // Função para obter a imagem com base no ID do produto
     const getImagemProduto = (id) => {
         switch (id) {
-            case 2:
+            case 1:
                 return cremeUvaDivno;
-            case 3:
+            case 2:
                 return essenciaUvaCelestial;
-            case 4:
+            case 3:
                 return abacaxiOlimpus;
-            case 10:
+            case 4:
                 return avocadoGlow;
-            case 11:
+            case 5:
                 return pineappleDeling;
-            case 12:
+            case 6:
                 return tropicalBreeze;
-            case 13:
+            case 7:
                 return bananaBliss;
-            case 14:
+            case 8:
                 return citrusBurst;
-            case 15:
+            case 9:
                 return orangeRadiano;
-            case 16:
-                return sunriseCitrus;
-            case 17:
+            case 10:
                 return greenAplleRevive;
-            case 18:
+            case 11:
                 return strawberryKiss;
-            case 19:
+            case 12:
                 return berryFreshness;
             default:
                 return ; // Retorna null se o ID não corresponder a nenhuma imagem
@@ -85,7 +83,8 @@ export default function Catalogo(){
                   nome={produto.nomeProduto}
                   valor={produto.valorProduto}
                   descricao={produto.descricaoProduto}
-                  imagem={getImagemProduto(produto.idProduto)} // Use a função para obter a imagem com base no ID do produto
+                  imagem={getImagemProduto(produto.idProduto)}
+                  idProduto={produto.idProduto}
                 />
                 </div>
               </div>
