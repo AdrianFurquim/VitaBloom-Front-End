@@ -15,8 +15,6 @@ import greenAplleRevive from "../../img/produto_maca_1.png"
 import strawberryKiss from "../../img/produto_morango_1.png"
 import berryFreshness from "../../img/produto_morango_5.png"
 
-
-
 import { useState, useEffect } from "react"
 
 export default function Carrinho(){
@@ -87,7 +85,7 @@ export default function Carrinho(){
                                 imagem={getImagemProduto(item.produto.idProduto)}/>
                         </div>
                     </div>
-            ))}
+                ))}
 
             </div>
         </>
