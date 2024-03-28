@@ -39,6 +39,31 @@ export default function Carrinho(){
         }, 100);
     }, []);
 
+    const renderizarCarrinho = () => {
+        if (carrinho.length === 0) {
+            return <h2 className={styles.mensagem_carrinho}>Não há nenhum item no carrinho</h2>;
+        } else {
+            return (
+                <>
+                    {carrinho.map(item => (
+                        <div key={item.produtoId}>
+                            <div className={styles.outroteste}>
+                                <ProdutoCarrinho 
+                                    nome={item.produto.nomeProduto} 
+                                    valor={item.produto.valorProduto * item.quantidade} 
+                                    quantidade={item.quantidade} 
+                                    imagem={getImagemProduto(item.produto.idProduto)}
+                                    idProduto={item.produto.idProduto}
+                                    idCarrinho={item.produtoId}
+                                    />
+                            </div>
+                        </div>
+                    ))}
+                </>
+            );
+        }
+    };
+
     const getImagemProduto = (id) => {
         switch (id) {
             case 1:
@@ -72,7 +97,7 @@ export default function Carrinho(){
 
     return (
         <>
-            <div>
+            {/* <div>
                 {carrinho.map(item => (
                     <div key={item.produtoId}>
                         <div className={styles.outroteste}>
@@ -82,12 +107,14 @@ export default function Carrinho(){
                                     item.produto.valorProduto* item.quantidade
                                 } 
                                 quantidade={item.quantidade} 
-                                imagem={getImagemProduto(item.produto.idProduto)}/>
+                                imagem={getImagemProduto(item.produto.idProduto)}
+                                idProduto={item.produtoId}/>
                         </div>
                     </div>
                 ))}
 
-            </div>
+            </div> */}
+            {renderizarCarrinho()}
         </>
     )
 }

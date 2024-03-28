@@ -9,6 +9,15 @@
 .produto_container{
     align-items: center;
 }
+.produto_container_verde{
+    width:21em;
+    background-color: #d2faba;
+    margin-bottom: 1.5em;
+    transition: 0.7s;
+    position: relative;
+    margin: auto;
+    align-items: center;
+}
 .informacoes{
     margin-left: 1.5em;
     margin-right: 1.5em;

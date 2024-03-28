@@ -32,10 +32,22 @@
     margin-right: 10em;
 }
 
+.btnMenosRemover{
+    background-color: #fccc84;
+    border: none;
+    width: 5em;
+    border-bottom-left-radius: 11px;
+    border-top-left-radius: 11px;
+    transition: 0.9s;
+}
+
 .btnMais:hover{
     background-color: #fc9684;
 }
 
 .btnMenos:hover{
+    background-color: #fc9684;
+}
+.btnMenosRemover:hover{
     background-color: #fc9684;
 }

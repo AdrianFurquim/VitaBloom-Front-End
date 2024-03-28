@@ -1,0 +1,7 @@
+.mensagem_carrinho{
+    background-color: rgb(250, 230, 192);
+    margin: auto;
+    color: rgba(0, 0, 0, 0.527);
+    padding: 1em;
+    border-radius: 15px;
+}
