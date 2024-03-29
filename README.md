@@ -27,7 +27,7 @@ Abaixo estão detalhes sobre a estrutura do projeto, ideias e como iniciar a apl
     :construction:  Projeto Em Andamento  :construction:
 </h4>
 
-O projeto ainda esta sendo construido aos poucos com seu Back-end em java com a ferramente Spring Boot, no repositório: https://github.com/AdrianFurquim/VitaBloom-Back-End.git
+O projeto possui seu Back-end em java com a ferramente Spring Boot, no repositório: https://github.com/AdrianFurquim/VitaBloom-Back-End.git
 
 <h4 align="center"> 
     O que é Vita Bloom?
@@ -41,7 +41,11 @@ pele, deixando-a radiante e saudável.
 <h4 align="center"> 
     📁 - Iniciando o Projeto
 </h4>
-É necessario ter uma IDE em seu comutador como o Visual Studo Code, ou outras que tenham compatibilidade que rode React, também é preciso ter instalado no computador o Node.js, alem do npm. Tendo os requisitos, é preciso abrir o projeto da IDE, abrir um prompt de comando que tenha o caminho da pasta, após isto, é preciso dar inserir no prompt o comando: npm run dev. Agora é só abrir em seu navegador o caminho: http://localhost:5173/ (ou o que a sua IDE irá usar como padrão) que irá aparecer a pagina inicial do projeto!
+Passo 1: </br> 
+Primeiramente, este é um site React com integração com seu banco de dados e back-end em Java, portanto é necessário que também possua uma maquina com as dependências que rodem Java e o Banco de dados (Link para Repositório do Back-End: https://github.com/AdrianFurquim/VitaBloom-Back-End.git), siga as instruções:  O projeto foi feito com o uso da ferramenta Visual Studio Code junto a extensão Thunder Client, é necessário ter uma IDE com o suporte ao Java para que funcione na maquina corretamente ou parecidos. Tendo isso, é preciso possuir uma maneira de ativar um servidor MySQL, seja por meio de um xampp ou de qualquer outra ferramenta para fazer a utilização do localhost em sua máquina. Após isto, é preciso que importe o Banco de Dados que esta disponível junto ao back-end, e agora é só rodar o java que seu back end estará funcionando.
+</br> </br> 
+Passo 2: </br> 
+Após os primeiros passos é preciso ter instalado no computador o Node.js, alem do npm. Tendo os requisitos, é preciso abrir o projeto da IDE, abrir um prompt de comando que tenha o caminho da pasta, após isto, é preciso inserir no prompt o comando: npm run dev. Agora é só abrir em seu navegador o caminho: http://localhost:5173/ (ou o que a sua IDE irá usar como padrão). Bem vindo ao Vita Bloom!
 
 <h4 align="center"> 
     Equipe composta por:
