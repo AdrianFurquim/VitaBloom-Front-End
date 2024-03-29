@@ -5,3 +5,10 @@
     padding: 1em;
     border-radius: 15px;
 }
+
+@media (max-width: 600px){
+    .mensagem_carrinho{
+        width: 90%;
+        margin-top: 2em;
+    }
+  }

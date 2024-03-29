@@ -7,7 +7,7 @@ export default function ProdutosCaixa(){
     return (
         <>
             <div className={styles.produtosCaixa_container}>
-                <img src={produtos_caixa} alt="" />
+                <img src={produtos_caixa} alt="" className={styles.imagens_caixa} />
                 <div className={styles.texto}>
                     <h1>Quem somos?</h1>
                     <p>onde a beleza encontra a natureza em sua forma mais vibrante. Nossa marca é um convite para explorar os segredos da natureza tropical, trazendo a exuberância 
@@ -30,7 +30,7 @@ export default function ProdutosCaixa(){
                         toda a nossa cadeia de produção.
                     </p>
                 </div>
-                <img src={produto_sacola} alt="" />
+                <img src={produto_sacola} alt="" className={styles.imagens_caixa}/>
 
             </div>
 

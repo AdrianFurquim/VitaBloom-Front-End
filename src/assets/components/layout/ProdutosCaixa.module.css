@@ -11,3 +11,15 @@
     margin-left: 1.5em;
     margin-right: 1.5em;
 }
+@media (max-width: 600px){
+    .produtosCaixa_container{
+        display: block;
+        width: 120%;
+    }  
+    .imagens_caixa{
+        max-width: 80%;
+        width: auto;
+        height: auto;
+
+    }
+}

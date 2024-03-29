@@ -77,13 +77,13 @@ export default function Carrinho(){
             case 5:
                 return pineappleDeling;
             case 6:
-                return tropicalBreeze;
-            case 7:
                 return bananaBliss;
-            case 8:
+            case 7:
                 return citrusBurst;
-            case 9:
+            case 8:
                 return orangeRadiano;
+            case 9:
+                return sunriseCitrus;
             case 10:
                 return greenAplleRevive;
             case 11:

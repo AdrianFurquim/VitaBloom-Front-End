@@ -6,7 +6,13 @@
     margin-bottom: 1em;
   }
   
-  .teste {
-    justify-content: space-around;
-    display: flex;
+.teste {
+  justify-content: space-around;
+  display: flex;
+}
+@media (max-width: 600px){
+  .produtos_container div {
+    margin-left: auto;
+    margin-right: auto;
   }
+}

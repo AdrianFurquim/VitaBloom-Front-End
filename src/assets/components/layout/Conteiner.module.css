@@ -17,3 +17,13 @@
     flex-direction: column;
     justify-content: flex-start;
 }
+
+@media (max-width: 500px){
+    .conteiner{
+        width: 100%;
+        display: block;
+    }
+    .min_heigth{
+        min-height: 100%;
+    }
+}

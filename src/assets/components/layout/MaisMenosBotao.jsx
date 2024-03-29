@@ -106,7 +106,9 @@ export default function MaisMenosBotao({ valor, quantidade, idProduto, idCarrinh
     return (
         <div className={styles.conteiner_total}>
             <div className={styles.valor}>
-                <p>R$: {valorItem.toFixed(2)}</p>
+                <div>
+                    <p>R$: {valorItem.toFixed(2)}</p>
+                </div>
             </div>
             <div className={styles.conteiner_opcao}>
                 <button className={`${styles.btnMenos} ${remover === "Remover" ? styles.btnMenosRemover : styles.btnMenos}`} onClick={removeItem}>{remover}</button>

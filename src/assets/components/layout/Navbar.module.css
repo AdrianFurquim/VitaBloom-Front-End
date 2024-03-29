@@ -2,7 +2,6 @@
     display: flex;
     justify-content: space-between;
     background-color: #FFE9C7;
-    padding: 1em;
 }
 
 .list{
@@ -32,4 +31,10 @@
 
 .item a:hover{
     color: #fdb420;
+}
+
+@media (max-width: 600px){
+    .list{
+        justify-content: center;
+    }
 }

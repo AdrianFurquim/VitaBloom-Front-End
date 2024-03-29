@@ -12,5 +12,15 @@
     color: #f5d7a9;   
     background-color: rgb(211, 146, 60);
     width: 50em;
+}
 
+@media (max-width: 500px){
+    .btn{
+        width: 12em;
+    }
+    .btn:hover {
+        color: #f5d7a9;   
+        background-color: rgb(211, 146, 60);
+        width: 16em;
+    }
 }
