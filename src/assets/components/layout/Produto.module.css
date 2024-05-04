@@ -6,9 +6,11 @@
     position: relative;
     margin: auto;
 }
+
 .produto_container{
     align-items: center;
 }
+
 .produto_container_verde{
     width:21em;
     background-color: #d2faba;
@@ -18,14 +20,17 @@
     margin: auto;
     align-items: center;
 }
+
 .informacoes{
     width: 90%;
     margin-left: 1.5em;
     margin-right: 1.5em;
 }
+
 .valor{
     display: block;
 }
+
 .imagem_produto{
     width: 85%;
     margin: auto;
@@ -37,6 +42,7 @@
     bottom: 9em;
     right: 1em;
 }
+
 .texto{
     width: 650px;
     font-size: 16px; 
@@ -51,9 +57,11 @@
     border-radius: 100%;
     transition: 0.5s;
 }
+
 .btn img{
     width: 25px;    
 }
+
 .invisivel {
     opacity: 0;
     visibility: hidden;

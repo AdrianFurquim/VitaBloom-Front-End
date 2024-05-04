@@ -10,6 +10,7 @@
   justify-content: space-around;
   display: flex;
 }
+
 @media (max-width: 600px){
   .produtos_container div {
     margin-left: auto;

@@ -1,33 +1,33 @@
 import { useState, useEffect } from 'react';
 import styles from "./MaisMenosBotao.module.css"
+import { useNavigate } from 'react-router-dom';
 
-export default function MaisMenosBotao({ valor, quantidade, idProduto, idCarrinho }) {
+export default function MaisMenosBotao({ valor, quantidade, idProduto, idCarrinho, idUsuario, idItem}) {
     const [quantidadeItem, setQuantidadeItem] = useState(quantidade);
     const [valorItem, setValorItem] = useState(valor);
     const [remover, setRemoverItem] = useState("-");
+    const navigate = useNavigate();
     const valorFixo = valor / quantidade;
 
     useEffect(() => {
-        // Função a ser executada quando o componente for montado ou renderizado
+        // Função a ser executada quando o componente for montado ou renderizado.
         if (quantidadeItem === 1) {
             setRemoverItem("Remover");
         }
-    }, []); // Dependência vazia para garantir que o código seja executado apenas uma vez
+    }, []);
 
+    // Função de adicionar um item ao carrinho através do ID do usuário e do produto.
     function adicionarItemCarrinho(idProduto) {
-        const item = {
-            produtoId: idProduto,
-            quantidade: 1 // Você pode ajustar a quantidade conforme necessário
-        };
-        
-        fetch(`http://localhost:8443/carrinho/adicionar-item`, {
-            method: "POST",
+        fetch(`http://localhost:8443/vitabloom/usuario/adicionaritem/${idUsuario}`, {
+            method: "PUT",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                idCarrinho: 1,
-                itens: [item]
+                produto: {
+                    idProduto: idProduto
+                },
+                quantidade: 1
             })
         })
         .then((resp) => resp.json())
@@ -37,47 +37,47 @@ export default function MaisMenosBotao({ valor, quantidade, idProduto, idCarrinh
         .catch((err) => {
             console.log("Erro na requisição:", err);
         });
-
+        // Métodos para que a pagina sempre se mantenha atualizada na de acordo com os valores.
         setQuantidadeItem(quantidadeItem + 1);
         setValorItem(valorFixo * (quantidadeItem + 1));
         setRemoverItem("-");
     }
 
+    // Função para remover o item do carrinho do usuário.
     function removeItem() {
-        if (quantidadeItem === 1) {
+        if (quantidadeItem <= 1) {
             // Lógica de remoção do item se a quantidade for menor ou igual a zero
-            fetch(`http://localhost:8443/carrinho/item/delete/${idCarrinho}`, {
-                method: "DELETE",
+            fetch(`http://localhost:8443/vitabloom/usuario/removeitem/${idUsuario}/${idItem}`, {
+                method: "PUT",
                 headers: {
                     "content-type": "application/json"
                 }
             })
             .then((resp) => resp.json())
             .then((data) => {
-                // Tratar resposta, se necessário
+                
             })
             .catch((err) => {
                 console.log("Erro na requisição:", err);
             });
-            location.reload();
+            // Navigate para recarregar, e SETs para atualização de valores em tempo real
+            navigate("/carrinho");
             setQuantidadeItem(quantidadeItem - 1);
             setValorItem(valorFixo * (quantidadeItem - 1));
             setRemoverItem("Remover");
         } else {
-            // Lógica de remoção do item se a quantidade for maior a zero
-            const item = {
-                produtoId: idProduto,
-                quantidade: quantidade 
-            };
-            
-            fetch(`http://localhost:8443/carrinho/remover-item`, {
-                method: "POST",
+            // Lógica de remoção do item se a quantidade for maior a zero.
+            // Neste caso irá apenas diminuir 1 da quantia do produto.
+            fetch(`http://localhost:8443/vitabloom/usuario/adicionaritem/${idUsuario}`, {
+                method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    idCarrinho: 1,
-                    itens: [item]
+                    produto: {
+                        idProduto: idProduto
+                    },
+                    quantidade: -1
                 })
             })
             .then((resp) => resp.json())
@@ -86,7 +86,9 @@ export default function MaisMenosBotao({ valor, quantidade, idProduto, idCarrinh
             })
             .catch((err) => {
                 console.log("Erro na requisição:", err);
-            });    
+            });
+            // SETs para realizar a atualização, e if para verificar se o valor não seria igual
+            // que 2
 
             setQuantidadeItem(quantidadeItem - 1);
             setValorItem(valorFixo * (quantidadeItem - 1));
@@ -94,13 +96,6 @@ export default function MaisMenosBotao({ valor, quantidade, idProduto, idCarrinh
                 setRemoverItem("Remover");
             }
         }
-    }
-
-    function addItem() {
-        // Atualiza a quantidade e recalcula o valor do item
-        setQuantidadeItem(quantidadeItem + 1);
-        setValorItem((quantidadeItem + 1) * valor);
-        setRemoverItem("-");
     }
 
     return (

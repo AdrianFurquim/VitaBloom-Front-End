@@ -2,6 +2,7 @@
     width: 15%;
     margin-right: 2em;
 }
+
 .produto_carrinho_container{
     width: 100%;
     display: flex;
@@ -10,6 +11,7 @@
     transition: 0.6s;
     margin-bottom: 1em;
 }
+
 .descricao_produto{
     display: flex;
     justify-content:space-around;
@@ -36,4 +38,4 @@
         flex-direction: column;
         padding: 15px;
     }
-  }
+}

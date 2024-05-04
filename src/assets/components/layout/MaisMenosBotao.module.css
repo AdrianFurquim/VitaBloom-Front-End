@@ -1,6 +1,7 @@
 .conteiner_total{
     display: flex;
 }
+
 .conteiner_opcao{
     background-color: #fff5e6;
     border-radius: 20px;
@@ -8,6 +9,7 @@
     width: 8em;
     height: 2em;
 }
+
 .btnMais{
     background-color: #fccc84;
     border: none;
@@ -16,6 +18,7 @@
     border-top-right-radius: 11px;
     transition: 0.9s;
 }
+
 .btnMenos{
     background-color: #fccc84;
     border: none;
@@ -24,9 +27,11 @@
     border-top-left-radius: 11px;
     transition: 0.9s;
 }
+
 .conteiner_opcao p{
     margin: auto;
 }
+
 .valor{
     margin-right: 10em;
 }
@@ -47,6 +52,7 @@
 .btnMenos:hover{
     background-color: #fc9684;
 }
+
 .btnMenosRemover:hover{
     background-color: #fc9684;
 }

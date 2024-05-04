@@ -20,7 +20,6 @@ export default function ProdutosCaixa(){
                     </p>
                 </div>
             </div>
-
             <div className={styles.produtosCaixa_container}>
                 <div className={styles.texto}>
                     <h1>Produtos</h1>
@@ -31,9 +30,7 @@ export default function ProdutosCaixa(){
                     </p>
                 </div>
                 <img src={produto_sacola} alt="" className={styles.imagens_caixa}/>
-
             </div>
-
         </>
     )
 }

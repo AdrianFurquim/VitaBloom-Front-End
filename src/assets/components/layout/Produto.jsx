@@ -1,50 +1,57 @@
 import styles from "./Produto.module.css";
 import carrinho from "../../img/carrinho-de-compras.png";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
-export default function Produto({ imagem, nome, valor, descricao, idProduto }) {
+export default function Produto({ imagem, nome, valor, descricao, idProduto, idUsuario }) {
 
   const [containerClass, setContainerClass] = useState(styles.produto_container);
+  const navigate = useNavigate();
 
   function adicionarItemCarrinho(idProduto) {
-      const item = {
-        produtoId: idProduto,
-        quantidade: 1 // Você pode ajustar a quantidade conforme necessário
-      };
-    
-      fetch(`http://localhost:8443/carrinho/adicionar-item`, {
-        method: "POST",
-        headers: {
+    // Função para adicionar o produto ao carrinho do usuário logado.
+    fetch(`http://localhost:8443/vitabloom/usuario/adicionaritem/${idUsuario}`, {
+      method: "PUT",
+      headers: {
           "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        produto: {
+            idProduto: idProduto
         },
-        body: JSON.stringify({
-          idCarrinho: 1,
-          itens: [item]
-        })
+        quantidade: 1
       })
-        .then((resp) => resp.json())
-        .then((data) => {
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
           console.log(data);
-        })
-        .catch((err) => {
+      })
+      .catch((err) => {
           console.log("Erro na requisição:", err);
-        });
+      });
   }
 
+  // Função para alterar a cor durante um momento para adição do item.
   function alteraCor() {
     setContainerClass(styles.produto_container_verde);
 
-    // Define um timeout para retornar à classe original após 2 segundos
+    // Define um timeout para retornar à classe original após 2 segundos.
     setTimeout(() => {
         setContainerClass(styles.produto_container);
     }, 2000);
   }
 
+  // Handle click para ferificar se o usuário está logado.
+  // Caso não esteja é encaminhado para a tela de Login.  
   function handleClick(idProduto) {
-    adicionarItemCarrinho(idProduto);
-    alteraCor();
+    if(!idUsuario){
+      navigate("/usuario/login");
+    }else{
+      adicionarItemCarrinho(idProduto);
+      alteraCor();
+    }
   }
   return (
     <>

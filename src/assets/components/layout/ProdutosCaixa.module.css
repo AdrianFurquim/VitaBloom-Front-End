@@ -4,13 +4,16 @@
     background-color: #fff;
     margin-bottom: 1.5em;
 }
+
 .produtosCaixa_container{
     align-items: center;
 }
+
 .texto{
     margin-left: 1.5em;
     margin-right: 1.5em;
 }
+
 @media (max-width: 600px){
     .produtosCaixa_container{
         display: block;

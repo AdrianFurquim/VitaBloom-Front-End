@@ -17,38 +17,49 @@ import berryFreshness from "../../img/produto_morango_5.png"
 
 import { useState, useEffect } from "react"
 
-export default function Carrinho(){
+export default function Carrinho({idUsuario}){
 
-    const [carrinho, setCarrinho] = useState([]);
+    const [itensCarrinho, setItensCarrinho] = useState([]);
+    const [usuario, setUsuario] = useState([]);
 
-    useEffect(() => {
-        setTimeout(() => {
-            fetch(`http://localhost:8443/vitabloom/carrinho/ver`, {
-                method: "GET",
-                headers: {
-                    "content-type": "application/json"
-                }
-            })
-            .then((resp) => resp.json())
-            .then((data) => {
-                setCarrinho(data);
-            })
-            .catch((err) => {
-                console.log("Erro na requisição:", err);
-            });
-        }, 100);
-    }, []);
+    // Verificação para se o usuário realizou o Login.
+    if (!idUsuario) {
+        console.log("Não foi cadastrado nenhum usuário");
+    }else{
+        // Atualiza e pega os dados do usuário que está logado.
+        useEffect(() => {
+            setTimeout(() => {
+                fetch(`http://localhost:8443/vitabloom/usuarios/listarid/${idUsuario}`, {
+                    method: "GET",
+                    headers: {
+                        "content-type": "application/json"
+                    }
+                })
+                .then((resp) => resp.json())
+                .then((data) => {
+                    setUsuario(data);
+                    setItensCarrinho(data.carrinho.itens);
+                })
+                .catch((err) => {
+                    console.log("Erro na requisição:", err);
+                });
+            }, 100);
+        }, []);    
+    }
 
+    // Função para realizar a tela de acordo com os itens no carrinho do usuário.
+    // Caso não tenha carrinho, caso não tenha retorna avisando, ou que não foi logado.
+    // ou que não existe nenhum item no carrinho.
     const renderizarCarrinho = () => {
-        if (carrinho.length === 0) {
-            return <h2 className={styles.mensagem_carrinho}>Não há nenhum item no carrinho</h2>;
-        } else {
+        if (itensCarrinho.length != 0) {
             return (
                 <>
-                    {carrinho.map(item => (
+                    {itensCarrinho.map(item => (
                         <div key={item.produtoId}>
                             <div className={styles.outroteste}>
                                 <ProdutoCarrinho 
+                                    idItem={item.id}
+                                    idUsuario={usuario.idUsuario}
                                     nome={item.produto.nomeProduto} 
                                     valor={item.produto.valorProduto * item.quantidade} 
                                     quantidade={item.quantidade} 
@@ -60,10 +71,17 @@ export default function Carrinho(){
                         </div>
                     ))}
                 </>
-            );
+            )
+        } else {
+            if (!idUsuario) {
+                return <h2 className={styles.mensagem_carrinho}>Por favor, realize o login em nossa plataforma</h2>;
+            }else{
+                return <h2 className={styles.mensagem_carrinho}>Não existe nenhum item no carrinho</h2>;
+            }
         }
     };
 
+    // Função para identificar as imagens do produto.
     const getImagemProduto = (id) => {
         switch (id) {
             case 1:
@@ -91,29 +109,13 @@ export default function Carrinho(){
             case 12:
                 return berryFreshness;
             default:
-                return ; // Retorna null se o ID não corresponder a nenhuma imagem
+                return ; 
+                // Retorna null se o ID não corresponder a nenhuma imagem.
         }
     };
 
     return (
         <>
-            {/* <div>
-                {carrinho.map(item => (
-                    <div key={item.produtoId}>
-                        <div className={styles.outroteste}>
-                            <ProdutoCarrinho 
-                                nome={item.produto.nomeProduto} 
-                                valor={
-                                    item.produto.valorProduto* item.quantidade
-                                } 
-                                quantidade={item.quantidade} 
-                                imagem={getImagemProduto(item.produto.idProduto)}
-                                idProduto={item.produtoId}/>
-                        </div>
-                    </div>
-                ))}
-
-            </div> */}
             {renderizarCarrinho()}
         </>
     )

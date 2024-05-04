@@ -15,13 +15,13 @@ import greenAplleRevive from "../../img/produto_maca_1.png"
 import strawberryKiss from "../../img/produto_morango_1.png"
 import berryFreshness from "../../img/produto_morango_5.png"
 
-
 import { useState, useEffect } from "react"
 
-export default function Catalogo(){
+export default function Catalogo({idUsuario}){
 
     const [produtos, setProdutos] = useState([]);
 
+    // Use Effect para pegar todos os produtos do banco de dados.
     useEffect(() => {
         setTimeout(() => {
             fetch(`http://localhost:8443/vitabloom/produtos`, {
@@ -41,7 +41,7 @@ export default function Catalogo(){
         }, 100);
     }, []);
 
-    // Função para obter a imagem com base no ID do produto
+    // Função para obter a imagem com base no ID do produto.
     const getImagemProduto = (id) => {
         switch (id) {
             case 1:
@@ -69,27 +69,29 @@ export default function Catalogo(){
             case 12:
                 return berryFreshness;
             default:
-                return ; // Retorna null se o ID não corresponder a nenhuma imagem
+                return ;
+                // Retorna null se o ID não corresponder a nenhuma imagem.
         }
     };
 
     return (
         <div className={styles.produtos_container}>
-          <div className={styles.teste}>
-            {produtos.map(produto => (
-              <div key={produto.id}>
-                <div className={styles.outroteste}>
-                <Produto
-                  nome={produto.nomeProduto}
-                  valor={produto.valorProduto}
-                  descricao={produto.descricaoProduto}
-                  imagem={getImagemProduto(produto.idProduto)}
-                  idProduto={produto.idProduto}
-                />
-                </div>
-              </div>
-            ))}
-          </div>
+            <div className={styles.teste}>
+                {produtos.map(produto => (
+                    <div key={produto.id}>
+                        <div className={styles.outroteste}>
+                            <Produto
+                                idUsuario={idUsuario}
+                                nome={produto.nomeProduto}
+                                valor={produto.valorProduto}
+                                descricao={produto.descricaoProduto}
+                                imagem={getImagemProduto(produto.idProduto)}
+                                idProduto={produto.idProduto}
+                            />
+                        </div>
+                    </div>
+                ))}
+            </div>
         </div>
-      );
+    );
 }

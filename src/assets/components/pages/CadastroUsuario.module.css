@@ -1,0 +1,48 @@
+.cadastro_conteiner{
+    background-color: #FFF;
+    margin: auto;
+    width: 30em;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+label{
+    margin-top: 1em;
+}
+
+.mensagem{
+    display: none;
+    font-size: 15px;
+}
+
+.mensagem_error{
+    display: block;
+    color: red;
+    font-size: 15px;
+}
+
+.btnCadastrar{
+    cursor: pointer;
+    margin-top: 1em;
+    padding: 6px;
+    background-color: rgb(240, 191, 118);
+    border: none;
+    border-radius: 5px;
+    width: 10em;
+    transition: 0.3s;
+    margin-bottom: 1em;
+}
+
+.btnCadastrar:hover{
+    width: 12em;
+    background-color: rgb(255, 192, 98);
+}
+
+@media (max-width: 600px){
+    .cadastro_conteiner{
+        width: 90%;
+    }
+}

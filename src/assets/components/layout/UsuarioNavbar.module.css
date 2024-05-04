@@ -1,0 +1,23 @@
+.conteiner_usuario{
+    display: flex;
+    background-color: rgb(252, 213, 156);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+img{
+    width: 2em;
+    margin: auto;
+}
+
+p{
+    margin: auto;
+    margin-right: 2px;
+}
+
+.logado{
+    display: flex;
+    background-color: rgb(156, 252, 188);
+    padding: 5px;
+    border-radius: 5px;
+}
