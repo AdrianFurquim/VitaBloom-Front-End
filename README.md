@@ -45,7 +45,11 @@ Passo 1: </br>
 Primeiramente, este é um site React com integração com seu banco de dados e back-end em Java, portanto é necessário que também possua uma maquina com as dependências que rodem Java e o Banco de dados (Link para Repositório do Back-End: https://github.com/AdrianFurquim/VitaBloom-Back-End.git), siga as instruções:  O projeto foi feito com o uso da ferramenta Visual Studio Code junto a extensão Thunder Client, é necessário ter uma IDE com o suporte ao Java para que funcione na maquina corretamente ou parecidos. Tendo isso, é preciso possuir uma maneira de ativar um servidor MySQL, seja por meio de um xampp ou de qualquer outra ferramenta para fazer a utilização do localhost em sua máquina. Após isto, é preciso que importe o Banco de Dados que esta disponível junto ao back-end, e agora é só rodar o java que seu back end estará funcionando.
 </br> </br> 
 Passo 2: </br> 
-Após os primeiros passos é preciso ter instalado no computador o Node.js, alem do npm. Tendo os requisitos, é preciso abrir o projeto da IDE, abrir um prompt de comando que tenha o caminho da pasta, após isto, é preciso inserir no prompt o comando: npm run dev. Agora é só abrir em seu navegador o caminho: http://localhost:5173/ (ou o que a sua IDE irá usar como padrão). Bem vindo ao Vita Bloom!
+Após os primeiros passos é preciso ter instalado no computador o Node.js, alem do npm. Tendo os requisitos, é preciso abrir o projeto da IDE, abrir um prompt de comando que tenha o caminho da pasta, após isto, é preciso inserir no prompt o comando: 
+ </br>  </br> 
+$ npm run dev
+ </br>  </br> 
+Agora é só abrir em seu navegador o caminho: http://localhost:5173/ (ou o que a sua IDE irá usar como padrão). Bem vindo ao Vita Bloom!
 
 <h4 align="center"> 
     Equipe composta por:
