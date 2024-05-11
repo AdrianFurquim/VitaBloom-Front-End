@@ -23,6 +23,8 @@ export default function CadastroUsuario() {
     const [mensagemCep, setMensagemCep] = useState(styles.mensagem);
     const [mensagemSenha, setMensagemSenha] = useState(styles.mensagem);
     const [mensagemConfSenha, setMensagemConfSenha] = useState(styles.mensagem);
+    const [mensagemEmailExis, setMensagemEmailExis] = useState(styles.mensagem);
+    const [existeUsu, setExisteUsu] = useState(false);
 
     // Função para verificar se existe algum dado dentro dos inputs.
     function verificaDados(e) {
@@ -84,8 +86,8 @@ export default function CadastroUsuario() {
             e.preventDefault();
             return
         }
-        cadastrar();
-        voltarLogin();
+
+        verificarEmailExistente(e);
     }
 
     // Função para cadastrar os dados no banco de dados pela API.
@@ -124,44 +126,72 @@ export default function CadastroUsuario() {
         navigate("/usuario/login");
     }
 
+    function verificarEmailExistente(event){
+        fetch(`http://localhost:8443/vitabloom/usuarios/verificar/email/${email}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        .then((resp) => resp.json())
+        .then((data) => {
+            console.log("Dados recebidos:", data);
+            setMensagemEmailExis(styles.mensagem_error);
+            event.preventDefault();
+            return false;
+        })
+        .catch((err) => {
+            console.log("Erro na requisição:", err);        
+            setMensagemEmailExis(styles.mensagem);
+            cadastrar();
+            voltarLogin();
+        });
+    }
+
     return(
         <div className={styles.cadastro_conteiner}>
             <h2>Cadastro usuario</h2>
+            <p>Insira dados imaginários</p>
             <form className={styles.formCad}>
-                <div className={mensagemNome}>Por favor, insira um nome</div>
-                <label htmlFor="nome">Nome: </label><br />
-                <input type="text" name="nome" id="nome" onChange={(e) => setNome(e.target.value)}/>
-                <br />
-                <div className={mensagemEmail}>Por favor, insira um email</div>
-                <label htmlFor="email">Email</label><br />
-                <input type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)}/>
-                <br />
-                <div className={mensagemCpf}>Por favor, insira um CPF</div>
-                <label htmlFor="cpf">cpf: </label><br />
-                <input type="text" name="cpf" id="cpf" onChange={(e) => setCpf(e.target.value)}/>
-                <br />
-                <div className={mensagemEstado}>Por favor, insira seu estado</div>
-                <label htmlFor="estado">Estado: </label><br />
-                <input type="text" name="estado" id="estado" onChange={(e) => setEstado(e.target.value)}/>
-                <br />
-                <div className={mensagemCidade}>Por favor, insira sua cidade</div>
-                <label htmlFor="cidade">Cidade: </label><br />
-                <input type="text" name="cidade" id="cidade" onChange={(e) => setCidade(e.target.value)}/>
-                <br />
-                <div className={mensagemCep}>Por favor, insira set CEP</div>
-                <label htmlFor="cep">CEP: </label><br />
-                <input type="text" name="cep" id="cep" onChange={(e) => setCep(e.target.value)}/>
-                <br />
-                <div className={mensagemSenha}>Por favor, insira uma senha</div>
-                <label htmlFor="senha">Senha: </label><br />
-                <input type="password" name="senha" id="senha" onChange={(e) => setSenha(e.target.value)}/>
-                <br />
-                <div className={mensagemConfSenha}>Por favor, insira a mesma senha</div>
-                <label htmlFor="confSenha">Confirmar senha: </label><br />
-                <input type="password" name="confSenha" id="confSenha" onChange={(e) => setConfSenha(e.target.value)}/>
-                <br />
-                <button className={styles.btnCadastrar} onClick={verificaDados}>Enviar</button>
+                <div>
+                    <div className={mensagemNome}>Por favor, insira um nome</div>
+                    <label htmlFor="nome">Nome: </label><br />
+                    <input type="text" name="nome" id="nome" onChange={(e) => setNome(e.target.value)}/>
+                    <br /> <br />
+                    <div className={mensagemEmail}>Por favor, insira um email</div>
+                    <div className={mensagemEmailExis}>Este email já possui um cadastro!</div>
+                    <label htmlFor="email">Email</label><br />
+                    <input type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)}/>
+                    <br /> <br />
+                    <div className={mensagemCpf}>Por favor, insira um CPF</div>
+                    <label htmlFor="cpf">cpf: </label><br />
+                    <input type="text" name="cpf" id="cpf" onChange={(e) => setCpf(e.target.value)}/>
+                    <br /> <br />
+                    <div className={mensagemEstado}>Por favor, insira seu estado</div>
+                    <label htmlFor="estado">Estado: </label><br />
+                    <input type="text" name="estado" id="estado" onChange={(e) => setEstado(e.target.value)}/>
+                    <br /> <br />
+                </div>
+                <div>
+                    <div className={mensagemCidade}>Por favor, insira sua cidade</div>
+                    <label htmlFor="cidade">Cidade: </label><br />
+                    <input type="text" name="cidade" id="cidade" onChange={(e) => setCidade(e.target.value)}/>
+                    <br /> <br />
+                    <div className={mensagemCep}>Por favor, insira set CEP</div>
+                    <label htmlFor="cep">CEP: </label><br />
+                    <input type="text" name="cep" id="cep" onChange={(e) => setCep(e.target.value)}/>
+                    <br /> <br />
+                    <div className={mensagemSenha}>Por favor, insira uma senha</div>
+                    <label htmlFor="senha">Senha: </label><br />
+                    <input type="password" name="senha" id="senha" onChange={(e) => setSenha(e.target.value)}/>
+                    <br /> <br />
+                    <div className={mensagemConfSenha}>Por favor, insira a mesma senha</div>
+                    <label htmlFor="confSenha">Confirmar senha: </label><br />
+                    <input type="password" name="confSenha" id="confSenha" onChange={(e) => setConfSenha(e.target.value)}/>
+                    <br /> <br />
+                </div>
             </form>
+            <button className={styles.btnCadastrar} onClick={verificaDados}>Enviar</button>
         </div>
     )
 }

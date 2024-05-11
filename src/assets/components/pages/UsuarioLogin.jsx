@@ -73,7 +73,7 @@ export default function UsuarioLogin(props) {
             </form>
             <button className={styles.btnLogin} onClick={verificaDados}>Enviar</button>
             <p className={styles.cadastrar}>Não possuo cadastro, 
-                <Link to="/usuario/cadastro">Cadastrar</Link>
+                <Link to="/usuario/cadastro"> Cadastrar</Link>
             </p>
         </div>
     )

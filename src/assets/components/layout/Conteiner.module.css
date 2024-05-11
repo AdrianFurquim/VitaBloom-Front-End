@@ -1,13 +1,12 @@
 .conteiner{
-    width: 1200px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    margin: 0 auto;
     flex-wrap: wrap;
 }
 
 .min_heigth{
-    min-height: 75%;
+    min-height: 80%;
 }
 
 .start{
@@ -19,12 +18,9 @@
     justify-content: flex-start;
 }
 
-@media (max-width: 500px){
+@media (max-width: 600px){
     .conteiner{
         width: 100%;
         display: block;
-    }
-    .min_heigth{
-        min-height: 100%;
     }
 }

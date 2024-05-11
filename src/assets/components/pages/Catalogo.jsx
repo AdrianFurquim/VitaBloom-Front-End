@@ -14,6 +14,7 @@ import sunriseCitrus from "../../img/produto_laranja_4.png"
 import greenAplleRevive from "../../img/produto_maca_1.png"
 import strawberryKiss from "../../img/produto_morango_1.png"
 import berryFreshness from "../../img/produto_morango_5.png"
+import coracao_balao from "../../img/coracao_balao.svg"
 
 import { useState, useEffect } from "react"
 
@@ -75,8 +76,9 @@ export default function Catalogo({idUsuario}){
     };
 
     return (
-        <div className={styles.produtos_container}>
-            <div className={styles.teste}>
+        <>
+            <h1 className={styles.titulo}>Nossos jeitinho <span className={styles.titulo_colorido}>VitaBloom</span> de ser com <span className={styles.vermelho}>amor</span>❤️</h1>
+            <div className={styles.produtos_container}>
                 {produtos.map(produto => (
                     <div key={produto.id}>
                         <div className={styles.outroteste}>
@@ -92,6 +94,6 @@ export default function Catalogo({idUsuario}){
                     </div>
                 ))}
             </div>
-        </div>
+        </>
     );
 }

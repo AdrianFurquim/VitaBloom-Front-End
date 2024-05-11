@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import styles from "./MaisMenosBotao.module.css"
-import { useNavigate } from 'react-router-dom';
 
-export default function MaisMenosBotao({ valor, quantidade, idProduto, idCarrinho, idUsuario, idItem}) {
+export default function MaisMenosBotao({nomeProduto, imagem, valor, quantidade, idProduto, idUsuario, idItem}) {
     const [quantidadeItem, setQuantidadeItem] = useState(quantidade);
     const [valorItem, setValorItem] = useState(valor);
     const [remover, setRemoverItem] = useState("-");
-    const navigate = useNavigate();
+    const [display, setDisplay] = useState(styles.produto_carrinho_container);
+
     const valorFixo = valor / quantidade;
 
     useEffect(() => {
@@ -60,11 +60,8 @@ export default function MaisMenosBotao({ valor, quantidade, idProduto, idCarrinh
             .catch((err) => {
                 console.log("Erro na requisição:", err);
             });
-            // Navigate para recarregar, e SETs para atualização de valores em tempo real
-            navigate("/carrinho");
-            setQuantidadeItem(quantidadeItem - 1);
-            setValorItem(valorFixo * (quantidadeItem - 1));
-            setRemoverItem("Remover");
+            // Set display none para em tempo real, após ser excluido o produto, já irá sumir da tela.
+            setDisplay(styles.displayNone);
         } else {
             // Lógica de remoção do item se a quantidade for maior a zero.
             // Neste caso irá apenas diminuir 1 da quantia do produto.
@@ -87,9 +84,7 @@ export default function MaisMenosBotao({ valor, quantidade, idProduto, idCarrinh
             .catch((err) => {
                 console.log("Erro na requisição:", err);
             });
-            // SETs para realizar a atualização, e if para verificar se o valor não seria igual
-            // que 2
-
+            // SETs para realizar a atualização, e if para verificar se o valor não seria igual a 2.            
             setQuantidadeItem(quantidadeItem - 1);
             setValorItem(valorFixo * (quantidadeItem - 1));
             if (quantidadeItem === 2) {
@@ -99,17 +94,42 @@ export default function MaisMenosBotao({ valor, quantidade, idProduto, idCarrinh
     }
 
     return (
-        <div className={styles.conteiner_total}>
-            <div className={styles.valor}>
-                <div>
-                    <p>R$: {valorItem.toFixed(2)}</p>
+        <>
+            <div className={display}>
+                {/* Imagem do protudo */}
+                <img src={imagem} alt="" className={styles.imagem_produto} />
+
+                {/* Descrição do Produto */}
+                <div className={styles.nome_produto}>
+                    <h2>{nomeProduto}</h2>
+                </div>
+            
+                <div className={styles.conteiner_valores}>
+                    {/* Valor do Produto */}
+                    <div className={styles.valor}>
+                        <div>
+                            <p>R$: {valorItem.toFixed(2)}</p>
+                        </div>
+                    </div>
+
+                    {/* Opções de aumentar ou diminuir a quantia do produto */}
+                    <div className={styles.conteiner_opcao}>
+                        {/* Botão de Remover ou diminuir */}
+                        <button 
+                            className={`${styles.btnMenos} ${remover === "Remover" ? styles.btnMenosRemover : styles.btnMenos}`} 
+                            onClick={removeItem}>{remover}
+                        </button>
+                        {/* Demosntra a quantidade */}
+                        <p>{quantidadeItem}</p>
+                        {/* Botão de Aumentar */}
+                        <button 
+                            className={styles.btnMais} 
+                            onClick={() => adicionarItemCarrinho(idProduto)}>
+                                +
+                        </button>
+                    </div>
                 </div>
             </div>
-            <div className={styles.conteiner_opcao}>
-                <button className={`${styles.btnMenos} ${remover === "Remover" ? styles.btnMenosRemover : styles.btnMenos}`} onClick={removeItem}>{remover}</button>
-                <p>{quantidadeItem}</p>
-                <button className={styles.btnMais} onClick={() => adicionarItemCarrinho(idProduto)}>+</button>
-            </div>
-        </div>
+        </>
     )
 }

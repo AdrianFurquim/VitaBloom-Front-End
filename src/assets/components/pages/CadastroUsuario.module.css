@@ -1,16 +1,20 @@
 .cadastro_conteiner{
     background-color: #FFF;
     margin: auto;
-    width: 30em;
+    width: 40em;
     border-radius: 10px;
     padding: 10px;
     text-align: center;
     margin-top: 1em;
     margin-bottom: 1em;
+    height: 100%;
+    margin-top: 3em;
 }
 
-label{
-    margin-top: 1em;
+.formCad{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2em;
 }
 
 .mensagem{
@@ -33,7 +37,8 @@ label{
     border-radius: 5px;
     width: 10em;
     transition: 0.3s;
-    margin-bottom: 1em;
+    margin-bottom: 0em;
+    font-size:medium;
 }
 
 .btnCadastrar:hover{
@@ -44,5 +49,8 @@ label{
 @media (max-width: 600px){
     .cadastro_conteiner{
         width: 90%;
+    }
+    .formCad{
+        display: block;
     }
 }

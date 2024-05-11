@@ -6,6 +6,18 @@
     border-radius: 15px;
 }
 
+.conteiner_itens_carrinho{
+    margin: auto;
+    margin-top: 0.75em;
+    margin-bottom: 0.75em;
+    width: 90%;
+    transition: 0.5s;
+}
+
+.conteiner_itens_carrinho:hover{
+    width: 95%;
+}
+
 @media (max-width: 600px){
     .mensagem_carrinho{
         width: 90%;

@@ -56,6 +56,14 @@ export default function Produto({ imagem, nome, valor, descricao, idProduto, idU
   return (
     <>
       <div className={containerClass}>
+          <div className={styles.produto_opcoes}>
+            <button
+              className={styles.btn}
+              onClick={() => handleClick(idProduto)}
+            >
+              <img src={carrinho} alt="" className={styles.carrinho} />
+            </button>
+          </div>
         <img className={styles.imagem_produto} src={imagem} alt="" />
         <div className={styles.informacoes}>
           <div className={styles.linhadebaixo}>
@@ -69,14 +77,6 @@ export default function Produto({ imagem, nome, valor, descricao, idProduto, idU
           <br></br>
           <p className={styles.invisivel}>{descricao}</p>
           <br></br>
-          <div className={styles.produto_opcoes}>
-            <button
-              className={styles.btn}
-              onClick={() => handleClick(idProduto)}
-            >
-              <img src={carrinho} alt="" className={styles.carrinho} />
-            </button>
-          </div>
         </div>
       </div>
     </>

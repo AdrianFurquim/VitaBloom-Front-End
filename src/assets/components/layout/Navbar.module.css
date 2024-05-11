@@ -1,6 +1,5 @@
 .navbar{
     display: flex;
-    justify-content: space-between;
     background-color: #FFE9C7;
 }
 
@@ -8,11 +7,15 @@
     display: flex;
     align-items: center;
     list-style: none;
-    gap: 1em;
+    gap: 2.5em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-bottom: 0.5em;
 }
 
 .logo_imagem{
-    width: 5.9em;
+    width: 5.5em;
+    margin-left: 2em;
 }
 
 .logo_escrita{
@@ -23,19 +26,34 @@
 .item a{
     text-decoration: none;
     color: #222;
-    transition: 0.3s;
+    position: relative;
 }
 
-.item a:hover{
-    color: #fdb420;
+.item a::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    color: #da9408;
+    background-color: #da9408;
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
 }
 
-@media (max-width: 600px){
-    .navbar{
-        padding-bottom: 10px;
-        text-align: center;
-    }
+.item a:hover::before{
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+}
+
+@media (max-width: 1000px){
     .list{
+        width: 100%;
         justify-content: center;
     }
 }

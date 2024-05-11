@@ -1,5 +1,6 @@
 .produto_container{
-    width:21em;
+    width:20em;
+    height: 28em;
     background-color: #fff;
     margin-bottom: 1.5em;
     transition: 0.7s;
@@ -39,8 +40,8 @@
 
 .produto_opcoes{
     position:absolute;
-    bottom: 9em;
-    right: 1em;
+    right: 0.5em;
+    top: 0.5em;
 }
 
 .texto{
@@ -65,6 +66,7 @@
 .invisivel {
     opacity: 0;
     visibility: hidden;
+    display: none;
     transition: opacity 0.3s ease; 
     position: absolute; 
     bottom: -100%; 
@@ -80,6 +82,7 @@
 }
 
 .produto_container:hover .invisivel {
+    display: block;
     opacity: 1; 
     visibility: visible; 
     bottom: 0; 

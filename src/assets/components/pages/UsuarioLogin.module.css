@@ -9,11 +9,17 @@
 
 input{
     margin-top: 0.5em;
-    padding: 6px;
+    padding: 9px;
     background-color: blanchedalmond;
     border: none;
     border-radius: 5px;
     margin-left: 0.5em;
+    outline: none;
+}
+
+input:checked{
+    background-color: blanchedalmond;
+    border: none;
 }
 
 .btnLogin{
@@ -35,6 +41,10 @@ input{
 
 .cadastrar{
     font-size: 15px;    
+}
+
+.cadastrar a{
+    color: #222;
 }
 
 .mensagem{

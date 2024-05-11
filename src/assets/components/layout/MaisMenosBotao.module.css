@@ -1,15 +1,20 @@
-.conteiner_total{
+.conteiner_valores{
     display: flex;
 }
 
+/* Parte do botão de aumentar, diminuir ou remover */
 .conteiner_opcao{
     background-color: #fff5e6;
     border-radius: 20px;
     display: flex;
     width: 8em;
     height: 2em;
+    margin: auto;
+    margin-right: 2em;
+    margin-left: 2em;
 }
 
+/* Botão de Mais */
 .btnMais{
     background-color: #fccc84;
     border: none;
@@ -19,6 +24,7 @@
     transition: 0.9s;
 }
 
+/* Botão de Menos */
 .btnMenos{
     background-color: #fccc84;
     border: none;
@@ -28,14 +34,19 @@
     transition: 0.9s;
 }
 
+/* Tags p dentro do conteiner_opcao */
 .conteiner_opcao p{
     margin: auto;
 }
 
+/* Ajuste do lugar do valor */
 .valor{
-    margin-right: 10em;
+    margin: auto;
+    margin-left: 7em;
+    margin-right: 7em;
 }
 
+/* Botão de remover */
 .btnMenosRemover{
     background-color: #fccc84;
     border: none;
@@ -45,14 +56,94 @@
     transition: 0.9s;
 }
 
+/* Tamanho da imagem na tela */
+.imagem_produto{
+    width: 18%;
+    margin-left: 0px;
+    margin-right: 2em;
+
+}
+
+/* Tamanho e configurações do carrinho_conteiner */
+.produto_carrinho_container{
+    min-width: 90%;
+    display: flex;
+    background-color: white;
+    margin-top: 1em;
+    transition: 0.6s;
+    margin-bottom: 1em;
+    margin: auto;
+    max-width: 95%;
+    justify-content: space-around;
+}
+
+/* Parte do nome do produto */
+.nome_produto{
+    display: flex;
+    justify-content:space-around;
+    width: 25%;
+    align-items: center;
+    margin: auto;
+    margin-left: 1em;
+}
+
+.displayNone{
+    display: none;
+}
+
+/* Ao passar o mause no botão de adicionar */
 .btnMais:hover{
     background-color: #fc9684;
+    cursor: pointer;
 }
 
+/* Ao passar o mause no botão de diminuir */
 .btnMenos:hover{
     background-color: #fc9684;
+    cursor: pointer;
 }
 
+/* Ao passar o mause no botão de remover */
 .btnMenosRemover:hover{
     background-color: #fc9684;
+    cursor: pointer;
+}
+
+/* Ao passar o mause no conteiner ele aumenta de tamanho */
+.produto_carrinho_container:hover{
+    width: 95%;
+}
+
+/* Media query para celulares */
+@media (max-width: 700px){
+    .produto_carrinho_container{
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        flex-direction: column;
+    }
+    .imagem_produto{
+        width: 60%;
+        margin: auto;
+    }
+    .descricao_produto{
+        flex-direction: column;
+        padding: 15px;
+    }
+    .conteiner_valores{
+        justify-content: space-between;
+    }
+    .valor{
+        margin-left: 0.5em;
+        margin-right: 0.5em;
+    }
+    .conteiner_opcao{
+        width: 7em;
+        margin-bottom: 0.5em;
+        margin-right: 0.5em;
+    }
+    .conteiner_opcao p{
+        width: 2em;
+        text-align: center;
+    }
 }

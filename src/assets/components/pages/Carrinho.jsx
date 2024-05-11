@@ -55,19 +55,17 @@ export default function Carrinho({idUsuario}){
             return (
                 <>
                     {itensCarrinho.map(item => (
-                        <div key={item.produtoId}>
-                            <div className={styles.outroteste}>
-                                <ProdutoCarrinho 
-                                    idItem={item.id}
-                                    idUsuario={usuario.idUsuario}
-                                    nome={item.produto.nomeProduto} 
-                                    valor={item.produto.valorProduto * item.quantidade} 
-                                    quantidade={item.quantidade} 
-                                    imagem={getImagemProduto(item.produto.idProduto)}
-                                    idProduto={item.produto.idProduto}
-                                    idCarrinho={item.produtoId}
-                                    />
-                            </div>
+                        <div key={item.produtoId} className={styles.conteiner_itens_carrinho}>
+                            <ProdutoCarrinho 
+                                idItem={item.id}
+                                idUsuario={usuario.idUsuario}
+                                nome={item.produto.nomeProduto} 
+                                valor={item.produto.valorProduto * item.quantidade} 
+                                quantidade={item.quantidade} 
+                                imagem={getImagemProduto(item.produto.idProduto)}
+                                idProduto={item.produto.idProduto}
+                                idCarrinho={item.produtoId}
+                                />
                         </div>
                     ))}
                 </>

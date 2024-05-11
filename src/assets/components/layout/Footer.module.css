@@ -2,6 +2,8 @@
     background-color: #FFE9C7;
     color:black;
     text-align: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
 
 .social_list{
@@ -12,6 +14,7 @@
 
 .social_list li{
     margin: 0 1em;
+    transition: 0.5s;
 }
 
 .social_list li:hover{
