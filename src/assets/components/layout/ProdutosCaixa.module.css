@@ -3,8 +3,22 @@
     width: 100%;
     background-color: #fff;
     margin-bottom: 1.5em;
+    margin-left: -20%;
     align-items: center;
     transition: 0.3s;
+    animation: moveToCenter 2s ease-out forwards;
+}
+
+@keyframes moveToCenter {
+    from {
+        top: 0;
+        left: 0;
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        transform: translate(10%, 0);
+    }
 }
 
 .texto{
