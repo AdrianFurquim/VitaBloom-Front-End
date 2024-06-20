@@ -1,6 +1,10 @@
 .navbar{
     display: flex;
     background-color: #FFE9C7;
+    width: 96%;
+    margin: auto;
+    margin-top: 1em;
+    border-radius: 55px;
 }
 
 .list{
@@ -9,7 +13,7 @@
     list-style: none;
     gap: 2.5em;
     padding-left: 0.5em;
-    padding-right: 0.5em;
+    padding-right: 2.5em;
     padding-bottom: 0.5em;
 }
 
@@ -23,13 +27,14 @@
     margin-bottom: 1em;
 }
 
-.item a{
+.item a, .item_login a{
     text-decoration: none;
     color: #222;
     position: relative;
+    transition: 0.3s;
 }
 
-.item a::before{
+.item a::before, .item_login a::before{
     content: "";
     position: absolute;
     width: 100%;
@@ -45,15 +50,43 @@
     transition: all 0.3s ease-in-out 0s;
 }
 
-.item a:hover::before{
+.item a:hover{
+    font-size: 20px;
+    background-color: #ffe3ab;
+    padding: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.item_login a:hover{
+    font-size: 20px;
+}
+
+.item a:hover::before, .item_login a:hover::before{
     visibility: visible;
     -webkit-transform: scaleX(1);
     transform: scaleX(1);
 }
 
 @media (max-width: 1000px){
+    .navbar{
+        width: 100%;
+        margin-top: 0em;
+        border-radius: 0px;
+    }
+
     .list{
         width: 100%;
         justify-content: center;
+        padding-left: 0em;
+        padding-right: 0em;
+    }
+
+    .item a:hover{
+        font-size: 18px;
+        background-color: #ffe3ab;
+        padding: 5px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
     }
 }

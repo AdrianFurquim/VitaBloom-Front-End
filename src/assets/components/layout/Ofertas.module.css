@@ -1,0 +1,47 @@
+.produto_oferta{
+    width: 25%;
+    border: 1px solid #da9408;
+    flex-direction: column;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+    margin-bottom: 1.5em;
+    padding-bottom: 1em;
+    transition: 0.5s;
+}
+
+.produto_oferta img{
+    width: 80%;
+    display: flex;
+    margin: auto;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+.produto_oferta h2, h3{
+    text-align: start;
+    margin-left: 2em;
+    color: black;
+    margin-top: -1em;
+}
+
+.valores{
+    display: flex;
+    margin-left: 1em;
+}
+
+.valores p{
+    margin-left: 2em;
+}
+
+.valor_antigo{
+    text-decoration: line-through;
+    color: crimson;
+}
+
+.valor_novo{
+    color: rgb(9, 255, 0);
+}
+
+.produto_oferta:hover{
+    width: 27%;
+}

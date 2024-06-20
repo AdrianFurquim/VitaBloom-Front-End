@@ -4,6 +4,42 @@
     text-align: center;
     padding-top: 1em;
     padding-bottom: 1em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer div{
+    width: 30%;
+    flex-direction: column;
+    text-align: start;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.footer a{
+    color: rgb(59, 59, 59);
+    text-decoration: none;
+    margin-top: 1em;
+    transition: 0.3s;
+}
+
+.footer a:hover{
+    color:#da9408;
+    font-size: 18px;
+}
+
+.navegacao{
+    margin-left: 10em;
+    display: flex;
+}
+
+.outros_links{
+    display: flex;
+}
+
+.extras{
+    display: block;
+    text-align: end;
 }
 
 .social_list{
@@ -27,10 +63,38 @@
 }
 
 .copy_right{
+    text-align: end;
     margin-top: 2em;
+    margin-right: 10em;
+}
+
+.creator{
+    text-align: end;
+    margin-right: 10em;
 }
 
 .copy_right span{
     font-weight: bold;
     color: #FFBB33;
+}
+
+@media (max-width: 1000px){
+    .footer{
+        display: block;
+        width: 100%;
+    }
+
+    .footer div{
+        margin-left: 2em;
+        width: 80%;
+    }
+
+    .extras p{
+        text-align: start;
+    }
+
+    .social_list{
+        margin-left: 2em;
+        justify-content: left;
+    }
 }

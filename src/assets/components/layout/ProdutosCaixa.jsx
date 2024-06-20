@@ -1,6 +1,7 @@
 import produtos_caixa from "../../img/produtos_na_caixa.png"
 import styles from "./ProdutosCaixa.module.css"
 import produto_sacola from '../../img/produto_sacola.png'
+import Ofertas from "./Ofertas"
 
 export default function ProdutosCaixa(){
 
@@ -19,6 +20,15 @@ export default function ProdutosCaixa(){
                         pele, deixando-a radiante e saudável.
                     </p>
                 </div>
+            </div>
+            <div className={styles.produtosOferta_container}>
+                <h1>Ofertas do dia</h1>
+                <div className={styles.ofertas_produtos}>
+                    <Ofertas idProduto={7}/>
+                    <Ofertas idProduto={7}/>
+                    <Ofertas idProduto={7}/>
+                </div>
+                
             </div>
             <div className={styles.produtosCaixa_container}>
                 <div className={styles.texto}>

@@ -10,6 +10,7 @@ import UsuarioLogin from "./assets/components/pages/UsuarioLogin";
 import CadastroUsuario from "./assets/components/pages/CadastroUsuario";
 import styles from "./assets/components/layout/UsuarioNavbar.module.css";
 import { useState } from "react";
+import ButtonTop from "./assets/components/layout/ButtonTop";
 
 function App() {
   
@@ -36,6 +37,7 @@ function App() {
           <Route path="/usuario/cadastro" element={<CadastroUsuario/>} />
         </Routes>
       </Conteiner>
+      <ButtonTop/>
       <Footer/>
     </Router>
   )

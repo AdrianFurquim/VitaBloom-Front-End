@@ -25,7 +25,7 @@ export default function Navbar({name, logado}) {
                     <li className={styles.item}>
                         <Link to="/carrinho">Carrinho</Link>
                     </li>
-                    <li className={styles.item}>
+                    <li className={styles.item_login}>
                         <Link to="/usuario/login">
                             <UsuarioNavbar nomeUsu={name} logado={logado}/>
                         </Link>

@@ -6,7 +6,27 @@
     margin-left: -20%;
     align-items: center;
     transition: 0.3s;
-    animation: moveToCenter 2s ease-out forwards;
+    animation: moveToCenter 1s ease-out forwards;
+}
+
+.produtosOferta_container{
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 1.5em;
+    margin-left: -20%;
+    align-items: center;
+    transition: 0.3s;
+    animation: moveToCenter 1s ease-out forwards;
+}
+
+.ofertas_produtos{
+    display: flex;
+    justify-content: center;
+}
+
+.produtosOferta_container h1{
+    margin-left: 1.5em;
+    margin-right: 1.5em;    
 }
 
 @keyframes moveToCenter {
