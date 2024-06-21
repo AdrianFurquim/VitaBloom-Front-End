@@ -1,5 +1,5 @@
 .produto_oferta{
-    width: 25%;
+    width: 80%;
     border: 1px solid #da9408;
     flex-direction: column;
     margin-left: 1.5em;
@@ -39,9 +39,26 @@
 }
 
 .valor_novo{
-    color: rgb(9, 255, 0);
+    color: rgb(102, 233, 97);
+}
+
+.caminho_link{
+    width: 90%;
+    text-decoration: none;
 }
 
 .produto_oferta:hover{
-    width: 27%;
+    width: 90%;
+}
+
+@media (max-width: 1000px){
+    .produto_oferta{
+        width: 80%;
+        margin: auto;
+        margin-top: 1.5em;
+        margin-bottom: 1.5em;
+    }
+    .produto_oferta:hover{
+        width: 90%;
+    }
 }

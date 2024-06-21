@@ -16,6 +16,10 @@
     margin-bottom: 2em;
 }
 
+.footer h2{
+    color: rgb(37, 37, 37);
+}
+
 .footer a{
     color: rgb(59, 59, 59);
     text-decoration: none;

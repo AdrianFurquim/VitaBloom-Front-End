@@ -25,8 +25,9 @@ export default function ProdutosCaixa(){
                 <h1>Ofertas do dia</h1>
                 <div className={styles.ofertas_produtos}>
                     <Ofertas idProduto={7}/>
-                    <Ofertas idProduto={7}/>
-                    <Ofertas idProduto={7}/>
+                    <Ofertas idProduto={12}/>
+                    <Ofertas idProduto={1}/>
+                    <Ofertas idProduto={8}/>
                 </div>
                 
             </div>

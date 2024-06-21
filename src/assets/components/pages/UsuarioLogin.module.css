@@ -1,10 +1,53 @@
 .conteiner_login{
     background-color: #FFF;
     margin: auto;
-    width: 25em;
+    margin-left: 0;
+    width: 30em;
     text-align: center;
     border-radius: 10px;
     padding: 10px;
+}
+
+.conteiner_login h3{
+    margin-top: 1em;
+    text-align: center;
+}
+
+.section_login{
+    width: 100%;
+    display: flex;
+}
+
+.conteiner_logo{
+    width: 30%;
+    max-width: 80%;
+    max-height: 99%;
+    background-color: #FFE9C7;
+    margin: auto;
+    margin-right: 3em;
+    display: flex;
+    flex-direction: column;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.texto_login{
+    color: #ebb64e;
+    width: 50%;
+    text-align: center;
+    margin: auto;
+    gap: 2em;
+}
+
+.logo_imagem{
+    width: 8em;
+}
+
+.logo_escrita{
+    width: 17em;
+    margin-bottom: 1em;
 }
 
 input{
@@ -58,9 +101,13 @@ input:checked{
     font-size: 15px;
 }
 
-@media (max-width: 600px){
+@media (max-width: 1000px){
     .conteiner_login{
         width: 70%;
+        margin: auto;
         margin-top: 3em;
+    }
+    .conteiner_logo{
+        display: none;
     }
 }

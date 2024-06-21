@@ -28,7 +28,7 @@
     margin-right: 1.5em;
 }
 
-.valor{
+.valorasd{
     display: block;
 }
 
@@ -59,6 +59,15 @@
     transition: 0.5s;
 }
 
+.valor_antigo{
+    text-decoration: line-through;
+    color: crimson;
+}
+
+.valor_novo{
+    color: rgb(9, 255, 0);
+}
+
 .btn img{
     width: 25px;    
 }
@@ -85,7 +94,7 @@
     display: block;
     opacity: 1; 
     visibility: visible; 
-    bottom: 0; 
+    bottom: 0;
 }
 
 .btn:hover{

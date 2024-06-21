@@ -12,12 +12,36 @@ import sunriseCitrus from "../../img/produto_laranja_4.png"
 import greenAplleRevive from "../../img/produto_maca_1.png"
 import strawberryKiss from "../../img/produto_morango_1.png"
 import berryFreshness from "../../img/produto_morango_5.png"
-import coracao_balao from "../../img/coracao_balao.svg"
+import { Link } from "react-router-dom"
+import { useState, useEffect } from "react"
 
 export default function Ofertas({idProduto}) {
 
+    const [produto, setProduto] = useState([]);
+
+    // Use Effect para pegar todos os produtos do banco de dados.
+    useEffect(() => {
+        setTimeout(() => {
+            fetch(`http://localhost:8443/vitabloom/produto/${idProduto}`, {
+                method: "GET",
+                headers: {
+                    "content-type": "application/json"
+                }
+            })
+            .then((resp) => resp.json())
+            .then((data) => {
+                console.log("Dados recebidos:", data);
+                setProduto(data);
+            })
+            .catch((err) => {
+                console.log("Erro na requisição:", err);
+            });
+        }, 100);
+    }, []);
+
+
+    // Função para conseguir colocar a imagem correta em determinado item.
     const getImagemProduto = (id) => {
-        
         switch (id) {
             case 1:
                 return cremeUvaDivno;
@@ -51,13 +75,15 @@ export default function Ofertas({idProduto}) {
 
 
     return (
-        <div className={styles.produto_oferta}>
-            <img src={getImagemProduto(idProduto)} alt="Produto de Beleza..." className={styles.imagem_oferta}/>
-            <h2>Citrus Burst</h2>
-            <div className={styles.valores}>
-                <p>De: <span className={styles.valor_antigo}>R$ 149.90</span></p>
+        <Link className={styles.caminho_link} to="/catalogo">
+            <div className={styles.produto_oferta}>
+                <img src={getImagemProduto(produto.idProduto)} alt="Produto de Beleza..." className={styles.imagem_oferta}/>
+                <h2>{produto.nomeProduto}</h2>
+                <div className={styles.valores}>
+                    <p>De: <span className={styles.valor_antigo}>R$ {produto.valorProduto + 100}</span></p>
+                </div>
+                <h2>Por: <span className={styles.valor_novo}>R$ {produto.valorProduto}</span></h2>
             </div>
-            <h2>Por: <span className={styles.valor_novo}>R$ 99.90</span></h2>
-        </div>
+        </Link>
     )
 }

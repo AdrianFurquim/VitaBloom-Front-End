@@ -19,6 +19,10 @@
     animation: moveToCenter 1s ease-out forwards;
 }
 
+.produtosOferta_container h1{
+    margin-top: 0.5em;
+}
+
 .ofertas_produtos{
     display: flex;
     justify-content: center;
@@ -46,8 +50,8 @@
     margin-right: 1.5em;    
 }
 
-@media (max-width: 600px){
-    .produtosCaixa_container{
+@media (max-width: 1000px){
+    .produtosCaixa_container, .produtosOferta_container{
         display: block;
         width: 120%;
     }
@@ -55,5 +59,9 @@
         max-width: 80%;
         width: auto;
         height: auto;
+    }
+    .ofertas_produtos{
+        display: block;
+        margin: auto;
     }
 }

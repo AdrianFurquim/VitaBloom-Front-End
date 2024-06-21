@@ -33,6 +33,8 @@ export default function Produto({ imagem, nome, valor, descricao, idProduto, idU
       });
   }
 
+  
+
   // Função para alterar a cor durante um momento para adição do item.
   function alteraCor() {
     setContainerClass(styles.produto_container_verde);
@@ -53,6 +55,25 @@ export default function Produto({ imagem, nome, valor, descricao, idProduto, idU
       alteraCor();
     }
   }
+
+
+  const renderizaOferta = () => {
+    if(idProduto == 1 || idProduto == 7 || idProduto == 12){
+      return (
+        <>
+          <p>De: <span className={styles.valor_antigo}>R$ {valor + 100}</span></p>
+          <h2>Por: <span className={styles.valor_novo}>R$ {valor}</span></h2>
+        </>
+      )
+    }else{
+      return (
+        <>
+          <p>R$ {valor}</p>
+        </>
+      )
+    }
+  }
+
   return (
     <>
       <div className={containerClass}>
@@ -71,7 +92,7 @@ export default function Produto({ imagem, nome, valor, descricao, idProduto, idU
               <h1>{nome}</h1>
             </div>
             <div className={styles.valor}>
-              <p>Valor: R$ {valor}</p>
+              {renderizaOferta()}
             </div>
           </div>
           <br></br>

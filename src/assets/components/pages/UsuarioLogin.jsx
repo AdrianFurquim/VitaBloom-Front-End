@@ -1,5 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./UsuarioLogin.module.css"
+import logo_imagem from "../../img/logo_imagem.png"
+import logo_escrita from "../../img/logo_escrita.png"
 import { useState , useEffect} from "react"
 
 export default function UsuarioLogin(props) {
@@ -58,23 +60,34 @@ export default function UsuarioLogin(props) {
     }
 
     return(
-        <div className={styles.conteiner_login}>
-            <h3>Login</h3>
-            <form>
-                <div className={mensagemEmail}>Por favor, insira um email</div>
-                <label htmlFor="email">Email:</label>
-                <input type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)} />
-                <br />
-                <div className={mensagemSenha}>Por favor, insira a senha</div>
-                <label htmlFor="senha">Senha: </label>
-                <input type="password" name="senha" id="senha" onChange={(e) => setSenha(e.target.value)} />
-                <br />
-                <div className={mensagemSemCad}>Usuário não reconhecido</div>
-            </form>
-            <button className={styles.btnLogin} onClick={verificaDados}>Enviar</button>
-            <p className={styles.cadastrar}>Não possuo cadastro, 
-                <Link to="/usuario/cadastro"> Cadastrar</Link>
-            </p>
-        </div>
+        <section className={styles.section_login}>
+            <div className={styles.conteiner_logo}>
+                <img src={logo_imagem} className={styles.logo_imagem} alt="Logo_Vita_Bloom" />
+                <img src={logo_escrita} className={styles.logo_escrita} alt="Logo_Escrita_nome_Vita_Bloom" />
+                <div className={styles.texto_login}>
+                    <h1>Venha fazer parte da Família Vita Bloom!</h1>
+                    <br />
+                    <h1>Com os melhores preços e melhores produtos!</h1>
+                </div>
+            </div>
+            <div className={styles.conteiner_login}>
+                <h3>Login</h3>
+                <form>
+                    <div className={mensagemEmail}>Por favor, insira um email</div>
+                    <label htmlFor="email">Email:</label>
+                    <input type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)} />
+                    <br />
+                    <div className={mensagemSenha}>Por favor, insira a senha</div>
+                    <label htmlFor="senha">Senha: </label>
+                    <input type="password" name="senha" id="senha" onChange={(e) => setSenha(e.target.value)} />
+                    <br />
+                    <div className={mensagemSemCad}>Usuário não reconhecido</div>
+                </form>
+                <button className={styles.btnLogin} onClick={verificaDados}>Enviar</button>
+                <p className={styles.cadastrar}>Não possuo cadastro, 
+                    <Link to="/usuario/cadastro"> Cadastrar</Link>
+                </p>
+            </div>
+        </section>
     )
 }
