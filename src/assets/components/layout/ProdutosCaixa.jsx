@@ -5,8 +5,10 @@ import Ofertas from "./Ofertas"
 
 export default function ProdutosCaixa(){
 
+    // Tela =============================================================================================================
     return (
         <>
+            {/* Texto e imagem inicial da home */}
             <div className={styles.produtosCaixa_container}>
                 <img src={produtos_caixa} alt="" className={styles.imagens_caixa} />
                 <div className={styles.texto}>
@@ -21,6 +23,8 @@ export default function ProdutosCaixa(){
                     </p>
                 </div>
             </div>
+
+            {/* Ofertas do Dia */}
             <div className={styles.produtosOferta_container}>
                 <h1>Ofertas do dia</h1>
                 <div className={styles.ofertas_produtos}>
@@ -29,8 +33,9 @@ export default function ProdutosCaixa(){
                     <Ofertas idProduto={1}/>
                     <Ofertas idProduto={8}/>
                 </div>
-                
             </div>
+
+            {/* Imagem e texto segundario da home */}
             <div className={styles.produtosCaixa_container}>
                 <div className={styles.texto}>
                     <h1>Produtos</h1>

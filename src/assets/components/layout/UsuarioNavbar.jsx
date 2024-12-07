@@ -9,12 +9,14 @@ export default function UsuarioNavbar({nomeUsu, logado}) {
         nomeUsu = "Entrar";
     }else{
     }
+
+    // Tela =============================================================================================================
     return(
         <div className={logado}>
             <p>
                 {nomeUsu}
             </p>
-            <img src={usuarioIcone} alt="imagem de um usuário padrão" />
+            <img src={usuarioIcone} alt="imagem de usuário padrão" />
         </div>
     )
 }

@@ -4,6 +4,7 @@ import LinkButton from "../layout/Linkbutton"
 import ProdutosCaixa from "../layout/produtosCaixa"
 
 export default function Home(){
+    // Tela =============================================================================================================
     return (
         <section className={styles.home_conteiner}>
             <h1>Bem vindo ao <span>Vita Bloom</span></h1>

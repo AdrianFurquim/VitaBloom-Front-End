@@ -19,9 +19,12 @@ import { useState, useEffect } from "react"
 
 export default function Carrinho({idUsuario}){
 
+    // Váriaveis =============================================================================================================
     const [itensCarrinho, setItensCarrinho] = useState([]);
     const [usuario, setUsuario] = useState([]);
 
+    // Funções =============================================================================================================
+    
     // Verificação para se o usuário realizou o Login.
     if (!idUsuario) {
         console.log("Não foi cadastrado nenhum usuário");
@@ -54,7 +57,9 @@ export default function Carrinho({idUsuario}){
         if (itensCarrinho.length != 0) {
             return (
                 <>
+                    {/* Loop para exibir os itens do carrinho do usuário logado */}
                     {itensCarrinho.map(item => (
+                        // Usando identificador para Loop.
                         <div key={item.produtoId} className={styles.conteiner_itens_carrinho}>
                             <ProdutoCarrinho 
                                 idItem={item.id}
@@ -68,9 +73,12 @@ export default function Carrinho({idUsuario}){
                                 />
                         </div>
                     ))}
+
                 </>
             )
         } else {
+            // Caso o usuário não esteja logado.
+            // Ou não exista nenhum produto no carrinho.
             if (!idUsuario) {
                 return <h2 className={styles.mensagem_carrinho}>Por favor, realize o login em nossa plataforma</h2>;
             }else{
@@ -111,6 +119,8 @@ export default function Carrinho({idUsuario}){
                 // Retorna null se o ID não corresponder a nenhuma imagem.
         }
     };
+
+    // Tela =============================================================================================================
 
     return (
         <>

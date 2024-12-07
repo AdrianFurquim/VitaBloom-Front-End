@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import styles from "./MaisMenosBotao.module.css"
 
 export default function MaisMenosBotao({nomeProduto, imagem, valor, quantidade, idProduto, idUsuario, idItem}) {
+
+    // Variáveis =============================================================================================================
     const [quantidadeItem, setQuantidadeItem] = useState(quantidade);
     const [valorItem, setValorItem] = useState(valor);
     const [remover, setRemoverItem] = useState("-");
@@ -9,6 +11,7 @@ export default function MaisMenosBotao({nomeProduto, imagem, valor, quantidade, 
 
     const valorFixo = valor / quantidade;
 
+    // Funções =============================================================================================================
     useEffect(() => {
         // Função a ser executada quando o componente for montado ou renderizado.
         if (quantidadeItem === 1) {
@@ -92,6 +95,8 @@ export default function MaisMenosBotao({nomeProduto, imagem, valor, quantidade, 
             }
         }
     }
+
+    // Tela =============================================================================================================
 
     return (
         <>

@@ -14,9 +14,12 @@ import ButtonTop from "./assets/components/layout/ButtonTop";
 
 function App() {
   
+  // Variáveis =============================================================================================================
   const[nome, setNome] = useState();
   const[idUsuario, setIdUsuario] = useState();
   const[logado, setLogado] = useState(styles.conteiner_usuario);
+
+  // Funções =============================================================================================================
 
   // Função para verificar se existe algum usuário logado.
   const updateNome = (r, id) =>{
@@ -24,6 +27,8 @@ function App() {
       setIdUsuario(id);
       setLogado(styles.logado);
   }
+
+  // Tela =============================================================================================================
 
   return (
     <Router>

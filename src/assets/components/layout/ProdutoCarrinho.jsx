@@ -1,6 +1,8 @@
 import MaisMenosBotao from "./MaisMenosBotao"
 
 export default function ProdutoCarrinho({nome, imagem, valor, quantidade, idProduto, idCarrinho, idUsuario, idItem}){
+
+    // Tela =============================================================================================================
     return(
         <MaisMenosBotao
             nomeProduto={nome}

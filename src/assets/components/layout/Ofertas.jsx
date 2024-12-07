@@ -17,7 +17,10 @@ import { useState, useEffect } from "react"
 
 export default function Ofertas({idProduto}) {
 
+    // Vatiáveis =============================================================================================================
     const [produto, setProduto] = useState([]);
+
+    // Funções =============================================================================================================
 
     // Use Effect para pegar todos os produtos do banco de dados.
     useEffect(() => {
@@ -38,7 +41,6 @@ export default function Ofertas({idProduto}) {
             });
         }, 100);
     }, []);
-
 
     // Função para conseguir colocar a imagem correta em determinado item.
     const getImagemProduto = (id) => {
@@ -73,12 +75,17 @@ export default function Ofertas({idProduto}) {
         }
     };
 
+    // Tela =============================================================================================================
 
     return (
+        // Link para encaminhas para o catalogo com as ofertas
         <Link className={styles.caminho_link} to="/catalogo">
             <div className={styles.produto_oferta}>
+                {/* Imagem do produto */}
                 <img src={getImagemProduto(produto.idProduto)} alt="Produto de Beleza..." className={styles.imagem_oferta}/>
+                {/* Nome do produto */}
                 <h2>{produto.nomeProduto}</h2>
+                {/* Valor do produto */}
                 <div className={styles.valores}>
                     <p>De: <span className={styles.valor_antigo}>R$ {produto.valorProduto + 100}</span></p>
                 </div>

@@ -14,13 +14,15 @@ import sunriseCitrus from "../../img/produto_laranja_4.png"
 import greenAplleRevive from "../../img/produto_maca_1.png"
 import strawberryKiss from "../../img/produto_morango_1.png"
 import berryFreshness from "../../img/produto_morango_5.png"
-import coracao_balao from "../../img/coracao_balao.svg"
 
 import { useState, useEffect } from "react"
 
 export default function Catalogo({idUsuario}){
 
+    // Variáveis =============================================================================================================
     const [produtos, setProdutos] = useState([]);
+
+    // Funções =============================================================================================================
 
     // Use Effect para pegar todos os produtos do banco de dados.
     useEffect(() => {
@@ -75,11 +77,15 @@ export default function Catalogo({idUsuario}){
         }
     };
 
+    // Tela =============================================================================================================
+
     return (
         <>
             <h1 className={styles.titulo}>Nossos jeitinho <span className={styles.titulo_colorido}>VitaBloom</span> de ser com <span className={styles.vermelho}>amor</span>❤️</h1>
             <div className={styles.produtos_container}>
+                {/* Loop para exibir todos os produtos do banco de dados */}
                 {produtos.map(produto => (
+                    // Usando um id como identificador.
                     <div key={produto.id}>
                         <div className={styles.outroteste}>
                             <Produto

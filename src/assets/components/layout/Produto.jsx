@@ -7,8 +7,11 @@ import { useNavigate } from "react-router-dom";
 
 export default function Produto({ imagem, nome, valor, descricao, idProduto, idUsuario }) {
 
+  // Variáveis =============================================================================================================
   const [containerClass, setContainerClass] = useState(styles.produto_container);
   const navigate = useNavigate();
+
+  // Funções =============================================================================================================
 
   function adicionarItemCarrinho(idProduto) {
     // Função para adicionar o produto ao carrinho do usuário logado.
@@ -33,8 +36,6 @@ export default function Produto({ imagem, nome, valor, descricao, idProduto, idU
       });
   }
 
-  
-
   // Função para alterar a cor durante um momento para adição do item.
   function alteraCor() {
     setContainerClass(styles.produto_container_verde);
@@ -56,8 +57,9 @@ export default function Produto({ imagem, nome, valor, descricao, idProduto, idU
     }
   }
 
-
+  // Função para renderizar do banco as ofertas especiais
   const renderizaOferta = () => {
+    // Escolhendo os produtos em promoção.
     if(idProduto == 1 || idProduto == 7 || idProduto == 12){
       return (
         <>
@@ -74,10 +76,13 @@ export default function Produto({ imagem, nome, valor, descricao, idProduto, idU
     }
   }
 
+  // Tela =============================================================================================================
+
   return (
     <>
       <div className={containerClass}>
           <div className={styles.produto_opcoes}>
+            {/* Botão de adicionar no carrinho */}
             <button
               className={styles.btn}
               onClick={() => handleClick(idProduto)}
@@ -85,19 +90,30 @@ export default function Produto({ imagem, nome, valor, descricao, idProduto, idU
               <img src={carrinho} alt="" className={styles.carrinho} />
             </button>
           </div>
+
+        {/* Imagem do produto */}
         <img className={styles.imagem_produto} src={imagem} alt="" />
+
         <div className={styles.informacoes}>
+
           <div className={styles.linhadebaixo}>
+            {/* Nome do produto */}
             <div>
               <h1>{nome}</h1>
             </div>
+
+            {/* Renderizando as Ofertas */}
             <div className={styles.valor}>
               {renderizaOferta()}
             </div>
           </div>
+
           <br></br>
+
+          {/* Descrição dinâmica dos produtos */}
           <p className={styles.invisivel}>{descricao}</p>
           <br></br>
+
         </div>
       </div>
     </>
