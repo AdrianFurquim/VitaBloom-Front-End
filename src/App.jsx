@@ -1,16 +1,17 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Home from "./assets/components/pages/Home";
-import Conteiner from "./assets/components/layout/Conteiner";
-import Navbar from "./assets/components/layout/Navbar";
-import Footer from "./assets/components/layout/Footer";
-import Catalogo from "./assets/components/pages/Catalogo";
-import Carrinho from "./assets/components/pages/Carrinho";
-import UsuarioLogin from "./assets/components/pages/UsuarioLogin";
-import CadastroUsuario from "./assets/components/pages/CadastroUsuario";
-import styles from "./assets/components/layout/UsuarioNavbar.module.css";
+import Home from "./components/pages/Home";
+import Conteiner from "./components/layout/Conteiner";
+import Navbar from "./components/layout/Navbar";
+import Footer from "./components/layout/Footer";
+import Catalogo from "./components/pages/Catalogo";
+import Carrinho from "./components/pages/Carrinho";
+import UsuarioLogin from "./components/pages/UsuarioLogin";
+import CadastroUsuario from "./components/pages/CadastroUsuario";
+import styles from "./components/layout/UsuarioNavbar.module.css";
 import { useState } from "react";
-import ButtonTop from "./assets/components/layout/ButtonTop";
+import ButtonTop from "./components/layout/ButtonTop";
+import { AuthProvider } from "./context";
 
 function App() {
   
@@ -31,20 +32,22 @@ function App() {
   // Tela =============================================================================================================
 
   return (
-    <Router>
-      <Navbar name={nome} logado={logado}/>
-      <Conteiner customClass="min_heigth">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/catalogo" element={<Catalogo idUsuario={idUsuario}/>} />
-          <Route path="/carrinho" element={<Carrinho idUsuario={idUsuario}/>} />
-          <Route path="/usuario/login" element={<UsuarioLogin handleResult={updateNome}/>} />
-          <Route path="/usuario/cadastro" element={<CadastroUsuario/>} />
-        </Routes>
-      </Conteiner>
-      <ButtonTop/>
-      <Footer/>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <Navbar name={nome} logado={logado}/>
+        <Conteiner customClass="min_heigth">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/catalogo" element={<Catalogo idUsuario={idUsuario}/>} />
+            <Route path="/carrinho" element={<Carrinho idUsuario={idUsuario}/>} />
+            <Route path="/usuario/login" element={<UsuarioLogin handleResult={updateNome}/>} />
+            <Route path="/usuario/cadastro" element={<CadastroUsuario/>} />
+          </Routes>
+        </Conteiner>
+        <ButtonTop/>
+        <Footer/>
+      </Router>
+    </AuthProvider>
   )
 }
 
