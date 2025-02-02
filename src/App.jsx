@@ -1,16 +1,16 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Home from "./components/pages/Home";
+import Home from "./pages/home/Home";
 import Conteiner from "./components/layout/Conteiner";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
-import Catalogo from "./components/pages/Catalogo";
-import Carrinho from "./components/pages/Carrinho";
-import UsuarioLogin from "./components/pages/UsuarioLogin";
-import CadastroUsuario from "./components/pages/CadastroUsuario";
-import styles from "./components/layout/UsuarioNavbar.module.css";
-import { useState } from "react";
+import Catalogo from "./pages/catalog/Catalogo";
+import Carrinho from "./pages/cart/Carrinho";
+import UsuarioLogin from "./pages/userLogin/UsuarioLogin";
+import CadastroUsuario from "./pages/userCad/CadastroUsuario";
+import styles from "./components/user/UsuarioNavbar.module.css";
 import ButtonTop from "./components/layout/ButtonTop";
+import { useState } from "react";
 import { AuthProvider } from "./context";
 
 function App() {

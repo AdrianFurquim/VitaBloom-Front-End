@@ -1,4 +1,4 @@
-import Produto from "../layout/Produto"
+import Produto from "../../components/product/Produto"
 import styles from "./Catalogo.module.css"
 
 import cremeUvaDivno from "../../assets/img/produto_uva_1.png"

@@ -1,4 +1,4 @@
-import ProdutoCarrinho from "../layout/ProdutoCarrinho"
+import ProdutoCarrinho from "../../components/cart/ProdutoCarrinho"
 import styles from "./Carrinho.module.css"
 
 import cremeUvaDivno from "../../assets/img/produto_uva_1.png"

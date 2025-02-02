@@ -4,7 +4,7 @@ import Conteiner from "./Conteiner"
 import styles from "./Navbar.module.css"
 import logo_imagem from "../../assets/img/logo_imagem.png"
 import logo_escrita from "../../assets/img/logo_escrita.png"
-import UsuarioNavbar from "./UsuarioNavbar"
+import UsuarioNavbar from "../user/UsuarioNavbar"
 
 export default function Navbar({name, logado}) {
 

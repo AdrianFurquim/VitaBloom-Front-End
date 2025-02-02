@@ -1,7 +1,7 @@
 import styles from "./Home.module.css"
 import produtos from "../../assets/img/produtos_na_caixa.png"
-import LinkButton from "../layout/Linkbutton"
-import ProdutosCaixa from "../layout/produtosCaixa"
+import LinkButton from "../../components/layout/LinkButton"
+import ProdutosCaixa from "../../components/product/ProdutosCaixa"
 import { createContext, useContext } from "react"
 import { Context } from "../../context"
 

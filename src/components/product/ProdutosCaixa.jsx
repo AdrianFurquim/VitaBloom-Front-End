@@ -1,7 +1,7 @@
 import produtos_caixa from "../../assets/img/produtos_na_caixa.png"
 import styles from "./ProdutosCaixa.module.css"
 import produto_sacola from '../../assets/img/produto_sacola.png'
-import Ofertas from "./Ofertas"
+import Ofertas from "../offers/Ofertas"
 
 export default function ProdutosCaixa(){
 
