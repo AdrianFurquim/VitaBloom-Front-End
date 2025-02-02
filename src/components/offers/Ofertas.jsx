@@ -13,12 +13,31 @@ import greenAplleRevive from "../../assets/img/produto_maca_1.png"
 import strawberryKiss from "../../assets/img/produto_morango_1.png"
 import berryFreshness from "../../assets/img/produto_morango_5.png"
 import { Link } from "react-router-dom"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
+import { Context } from "../../context"
+import { getProductsByOffer } from "../../servises/product/product"
 
 export default function Ofertas({idProduto}) {
 
     // Vatiáveis =============================================================================================================
     const [produto, setProduto] = useState([]);
+
+    const {
+        productListOffer, 
+        setProductListOffer
+    } = useContext(Context);
+
+    // Use Effect para pegar todos os produtos do banco de dados.
+    const fetchProducts = async () => {
+        getProductsByOffer(
+            idProduto, 
+            setProductListOffer
+        )
+    }
+
+    useEffect(() => {
+        fetchProducts();
+    }, [])
 
     // Funções =============================================================================================================
 

@@ -2,7 +2,9 @@ import { Link, useNavigate } from "react-router-dom";
 import styles from "./UsuarioLogin.module.css"
 import logo_imagem from "../../assets/img/logo_imagem.png"
 import logo_escrita from "../../assets/img/logo_escrita.png"
-import { useState , useEffect} from "react"
+import { useState , useEffect, useContext} from "react"
+import { checkUser } from "../../servises/user/user";
+import { Context } from "../../context";
 
 export default function UsuarioLogin(props) {
 
@@ -15,10 +17,22 @@ export default function UsuarioLogin(props) {
     const [usuario, setUsuario] = useState();
     const navigate = useNavigate();
 
+    const {
+        userId, 
+        setUserId,
+        userName, 
+        setUserName, 
+        userEmail, 
+        setUserEmail, 
+        userPassword,
+        setUserPassword
+    } = useContext(Context);
+
     // Funções =============================================================================================================
 
     // Verificação para se o usuário preencheu os dados.
     function verificaDados(e) {
+        fetchCheckUser();
         if (!email) {
             // Aparece mensagem de erro e retorna.
             setMensagemEmail(styles.mensagem_error);
@@ -68,6 +82,18 @@ export default function UsuarioLogin(props) {
         props.handleResult(nome, idUsuario);
         navigate("/");
     }
+
+    const fetchCheckUser = async () => {
+        checkUser(
+            email, 
+            senha, 
+            setUserId
+        )
+    }
+
+    // useEffect(() => {
+    //     fetchCheckUser();
+    // }, [])
 
     // Tela =============================================================================================================
 

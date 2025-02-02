@@ -15,34 +15,32 @@ import greenAplleRevive from "../../assets/img/produto_maca_1.png"
 import strawberryKiss from "../../assets/img/produto_morango_1.png"
 import berryFreshness from "../../assets/img/produto_morango_5.png"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
+import { Context } from "../../context"
+import { getProducts } from "../../servises/product/product"
 
 export default function Catalogo({idUsuario}){
 
     // Variáveis =============================================================================================================
     const [produtos, setProdutos] = useState([]);
 
+    const {
+        productList, 
+        setProductList
+    } = useContext(Context);
+
     // Funções =============================================================================================================
 
     // Use Effect para pegar todos os produtos do banco de dados.
+    const fetchProducts = async () => {
+        getProducts(
+            setProductList
+        )
+    }
+
     useEffect(() => {
-        setTimeout(() => {
-            fetch(`http://localhost:8443/vitabloom/produtos`, {
-                method: "GET",
-                headers: {
-                    "content-type": "application/json"
-                }
-            })
-            .then((resp) => resp.json())
-            .then((data) => {
-                console.log("Dados recebidos:", data);
-                setProdutos(data);
-            })
-            .catch((err) => {
-                console.log("Erro na requisição:", err);
-            });
-        }, 100);
-    }, []);
+        fetchProducts();
+    }, [])
 
     // Função para obter a imagem com base no ID do produto.
     const getImagemProduto = (id) => {
@@ -84,7 +82,7 @@ export default function Catalogo({idUsuario}){
             <h1 className={styles.titulo}>Nossos jeitinho <span className={styles.titulo_colorido}>VitaBloom</span> de ser com <span className={styles.vermelho}>amor</span>❤️</h1>
             <div className={styles.produtos_container}>
                 {/* Loop para exibir todos os produtos do banco de dados */}
-                {produtos.map(produto => (
+                {productList.map(produto => (
                     // Usando um id como identificador.
                     <div key={produto.id}>
                         <div className={styles.outroteste}>
