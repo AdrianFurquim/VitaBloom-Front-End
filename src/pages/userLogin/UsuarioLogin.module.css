@@ -1,16 +1,27 @@
 .conteiner_login{
-    background-color: #FFF;
+    background-color: #ffffffd0;
     margin: auto;
-    margin-left: 0;
-    width: 30em;
-    text-align: center;
+    width: 25em;
     border-radius: 10px;
     padding: 10px;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    
 }
 
-.conteiner_login h3{
-    margin-top: 1em;
+.conteinerLoginTitle{
+    font-size: 1.5em;
+    margin-left: 0.5em;
     text-align: center;
+    width: 20%;
+    color: #da9408;
+    border-bottom: 1px solid #da9408;
+}
+
+.conteinerLoginForm{
+    width: 90%;
+    margin: auto;
+    margin-top: 3em;
 }
 
 .section_login{
@@ -18,96 +29,56 @@
     display: flex;
 }
 
-.conteiner_logo{
-    width: 30%;
-    max-width: 80%;
-    max-height: 99%;
-    background-color: #FFE9C7;
-    margin: auto;
-    margin-right: 3em;
-    display: flex;
-    flex-direction: column;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    text-align: center;
-    border-radius: 20px;
-}
-
-.texto_login{
-    color: #ebb64e;
-    width: 50%;
-    text-align: center;
-    margin: auto;
-    gap: 2em;
-}
-
-.logo_imagem{
-    width: 8em;
-}
-
-.logo_escrita{
-    width: 17em;
-    margin-bottom: 1em;
-}
-
-input{
-    margin-top: 0.5em;
-    padding: 9px;
-    background-color: blanchedalmond;
-    border: none;
-    border-radius: 5px;
-    margin-left: 0.5em;
-    outline: none;
-}
-
-input:checked{
-    background-color: blanchedalmond;
-    border: none;
-}
-
-.btnLogin{
-    cursor: pointer;
+.conteinerLoginInput{
     margin-top: 1em;
-    padding: 6px;
-    background-color: rgb(240, 191, 118);
-    border: none;
-    border-radius: 5px;
-    width: 10em;
-    transition: 0.3s;
-    margin-bottom: 1em;
-}
-
-.btnLogin:hover{
-    width: 12em;
-    background-color: rgb(255, 192, 98);
-}
-
-.cadastrar{
-    font-size: 15px;    
-}
-
-.cadastrar a{
-    color: #222;
 }
 
 .mensagem{
     display: none;
-    font-size: 15px;
+}
+
+input{
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 10px;
+    width: 100%;
+    outline: none;
+    font-size:medium;
+}
+
+input:active, input:focus{
+    outline: none;
+}
+
+.conteinerLoginButton{
+    display: grid;
+}
+
+.btnLogin{
+    padding: 7px;
+    border: none;
+    background-color: #da9408;
+    color: white;
+    text-align: center;
+    width: 90%;
+    margin: auto;
+    margin-top: 3em;
+    font-size: 1.09em;
+    cursor: pointer;
+}
+
+.cadastrar{
+    margin: auto;
+    margin-top: 0.7em;
+    color: black;
+    text-decoration: none;
+    font-size: 0.9em;
+    cursor: pointer;
 }
 
 .mensagem_error{
-    display: block;
+    display: none;
     color: red;
-    font-size: 15px;
-}
-
-@media (max-width: 1000px){
-    .conteiner_login{
-        width: 70%;
-        margin: auto;
-        margin-top: 3em;
-    }
-    .conteiner_logo{
-        display: none;
-    }
+    font-size: 12px;
 }
