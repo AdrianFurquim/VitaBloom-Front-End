@@ -1,3 +1,9 @@
+.section_login{
+    margin-top: 3em;
+    margin-bottom: 3em;
+    min-height: 70%;
+}
+
 .conteiner_login{
     background-color: #ffffffd0;
     margin: auto;
@@ -5,8 +11,7 @@
     border-radius: 10px;
     padding: 10px;
     padding-bottom: 30px;
-    padding-top: 30px;
-    
+    padding-top: 30px;   
 }
 
 .conteinerLoginTitle{

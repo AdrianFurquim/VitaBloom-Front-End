@@ -16,6 +16,7 @@ import strawberryKiss from "../../assets/img/produto_morango_1.png"
 import berryFreshness from "../../assets/img/produto_morango_5.png"
 
 import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 
 export default function Carrinho({idUsuario}){
 
@@ -80,9 +81,17 @@ export default function Carrinho({idUsuario}){
             // Caso o usuário não esteja logado.
             // Ou não exista nenhum produto no carrinho.
             if (!idUsuario) {
-                return <h2 className={styles.mensagem_carrinho}>Por favor, realize o login em nossa plataforma</h2>;
+                return (
+                    <div className={styles.conteinerCarMessageLogin}>
+                        <h2 className={styles.mensagem_carrinho}>Por favor, realize o <Link to="/usuario/login">login</Link> em nossa plataforma</h2>;
+                    </div>
+                )
             }else{
-                return <h2 className={styles.mensagem_carrinho}>Não existe nenhum item no carrinho</h2>;
+                return (
+                    <div className={styles.conteinerCarMessageLogin}>
+                        <h2 className={styles.mensagem_carrinho}>Não existe nenhum item no carrinho</h2>;
+                    </div>
+                )
             }
         }
     };

@@ -12,7 +12,7 @@ export default function UsuarioNavbar({nomeUsu, logado}) {
 
     // Tela =============================================================================================================
     return(
-        <div className={logado}>
+        <div className={styles.conteinerAccont}>
             <p>
                 {nomeUsu}
             </p>
