@@ -1,11 +1,3 @@
-.mensagem_carrinho{
-    background-color: rgb(250, 230, 192);
-    margin: auto;
-    color: rgba(0, 0, 0, 0.527);
-    padding: 1em;
-    border-radius: 15px;
-}
-
 .conteiner_itens_carrinho{
     margin: auto;
     margin-top: 0.75em;
@@ -16,6 +8,31 @@
 
 .conteiner_itens_carrinho:hover{
     width: 95%;
+}
+
+.conteinerCarMessageLogin{
+    min-height: 70%;
+    display: flex;
+}
+
+.mensagem_carrinho{
+    background-color: rgb(250, 230, 192);
+    margin: auto;
+    align-items: center;
+    color: rgb(44, 44, 44);
+    padding: 1em;
+    border-radius: 15px;
+    text-align: center;
+    width: 50%;
+}
+
+.mensagem_carrinho a{
+    color: #da9408;
+    transition: 0.5s;
+}
+
+.mensagem_carrinho a:hover{
+    font-size: 1.2em;
 }
 
 @media (max-width: 600px){

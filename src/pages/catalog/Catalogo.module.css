@@ -1,3 +1,19 @@
+.conteinerCatalog{
+  min-height: 70%;
+}
+
+.titulo{
+  margin: auto;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  background-color: #FFE9C7;
+  padding: 10px;
+  border-radius: 10px;
+  color: #da9408;
+  width: 55%;
+  text-align: center;
+}
+
 .produtos_container {
     display: inline-flex;
     justify-content: center; 
@@ -12,16 +28,6 @@
 .teste {
   justify-content: space-around;
   display: flex;
-}
-
-.titulo{
-  margin: auto;
-  margin-top: 1em;
-  margin-bottom: 0.5em;
-  background-color: #FFE9C7;
-  padding: 10px;
-  border-radius: 10px;
-  color: #da9408;
 }
 
 .vermelho{

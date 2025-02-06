@@ -78,7 +78,7 @@ export default function Catalogo({idUsuario}){
     // Tela =============================================================================================================
 
     return (
-        <>
+        <section className={styles.conteinerCatalog}>
             <h1 className={styles.titulo}>Nossos jeitinho <span className={styles.titulo_colorido}>VitaBloom</span> de ser com <span className={styles.vermelho}>amor</span>❤️</h1>
             <div className={styles.produtos_container}>
                 {/* Loop para exibir todos os produtos do banco de dados */}
@@ -98,6 +98,6 @@ export default function Catalogo({idUsuario}){
                     </div>
                 ))}
             </div>
-        </>
+        </section>
     );
 }
