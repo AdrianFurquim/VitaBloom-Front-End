@@ -1,10 +1,24 @@
-.navbar{
+.conteinerNavbar{
     display: flex;
     background-color: #FFE9C7;
-    width: 96%;
     margin: auto;
-    margin-top: 1em;
-    border-radius: 55px;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    justify-content: space-between;
+}
+
+.conteinerNavbarLogoImage{
+    width: 5.5em;
+    margin-left: 2em;
+}
+
+.conteinerNavbarLogoWritten{
+    width: 17em;
+    margin-bottom: 1em;
+}
+
+.conteinerNavbarListLink{
+    display: flex;
 }
 
 .list{
@@ -17,25 +31,14 @@
     padding-bottom: 0.5em;
 }
 
-.logo_imagem{
-    width: 5.5em;
-    margin-left: 2em;
-}
-
-.logo_escrita{
-    width: 17em;
-    margin-bottom: 1em;
-}
-
-
-.item a, .item_login a{
+.item a, .itemLogin a{
     text-decoration: none;
     color: #222;
     position: relative;
     transition: 0.3s;
 }
 
-.item a::before, .item_login a::before{
+.item a::before, .itemLogin a::before{
     content: "";
     position: absolute;
     width: 100%;
@@ -59,23 +62,17 @@
     border-top-right-radius: 5px;
 }
 
-.item_login a:hover{
+.itemLogin a:hover{
     font-size: 20px;
 }
 
-.item a:hover::before, .item_login a:hover::before{
+.item a:hover::before, .itemLogin a:hover::before{
     visibility: visible;
     -webkit-transform: scaleX(1);
     transform: scaleX(1);
 }
 
 @media (max-width: 1000px){
-    .navbar{
-        width: 100%;
-        margin-top: 0em;
-        border-radius: 0px;
-    }
-
     .list{
         width: 100%;
         justify-content: center;
