@@ -1,6 +1,6 @@
 # Vita Bloom Front-End
 
-<h1 align="center">Vita Bloom Front-End</h1>
+<h1 align="center">Vita Bloom README temporário</h1>
 
 <div align="center">
   <img src="https://github.com/AdrianFurquim/VitaBloom-Back-End/assets/116688048/0b5a8582-c31e-45bb-93ea-67ed58191def" alt="logo Vita Bloom" />
