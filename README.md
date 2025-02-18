@@ -16,7 +16,7 @@ Bem-vindo ao Front-End do site Vita Bloom! Abaixo estão detalhes sobre a estrut
 - **React-Router-Dom**
 - **API em Java**
 
-<h4 align="center">✅ Projeto Finalizado ✅</h4>
+<h4 align="center">🚧 Projeto em andamento 🚧</h4>
 
 O projeto possui seu Back-End em Java com a ferramenta Spring Boot, disponível no repositório: [Repositório Back-End](https://github.com/AdrianFurquim/VitaBloom-Back-End.git).
 
