@@ -13,26 +13,19 @@ export default function UsuarioLogin(props) {
     const [senha, setSenha] = useState("");
     const [mensagemEmail, setMensagemEmail] = useState(styles.mensagem_error);
     const [mensagemSenha, setMensagemSenha] = useState(styles.mensagem_error);
-    const [mensagemSemCad, setMensagemSemCad] = useState(styles.mensagem_error);
-    const [usuario, setUsuario] = useState();
+    const [mensagemSemCad, setMensagemSemCad] = useState(styles.mensagem_error);  
+    const [isLoginSuccess, setIsLoginSuccess] = useState(false);
     const navigate = useNavigate();
 
     const {
-        userId, 
-        setUserId,
-        userName, 
-        setUserName, 
-        userEmail, 
-        setUserEmail, 
-        userPassword,
-        setUserPassword
+        userInfos, 
+        handleLogin
     } = useContext(Context);
 
     // Funções =============================================================================================================
 
     // Verificação para se o usuário preencheu os dados.
-    function verificaDados(e) {
-        fetchCheckUser();
+    async function verificaDados(e) {
         if (!email) {
             // Aparece mensagem de erro e retorna.
             setMensagemEmail(styles.mensagem_error);
@@ -52,48 +45,17 @@ export default function UsuarioLogin(props) {
             setMensagemSenha(styles.mensagem);
         }
 
-        // Chama função para verificar se o cadastro existe no banco.
-        verificarCadastro();
-    }
-
-    // Função para verificar se o login realizado existe realmente no banco de dados.
-    function verificarCadastro(e) {
-        fetch(`http://localhost:8443/vitabloom/usuarios/verificar/${email}/${senha}`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json"
+        if(email && senha){
+            e.preventDefault();
+            const user = await handleLogin(email, senha);
+            if (user && user[0]) {
+                navigate("/"); // Agora pode navegar sem erro
+            } else {
+                console.log("Usuário não encontrado");
             }
-        })
-        .then((resp) => resp.json())
-        .then((data) => {
-            console.log("Dados recebidos:", data);
-            setUsuario(data);
-            handleClick(data.nome, data.idUsuario)
-            setMensagemSemCad(styles.mensagem);
-        })
-        .catch((err) => {
-            console.log("Erro na requisição:", err);            
-            setMensagemSemCad(styles.mensagem_error);
-        });
-    }
 
-    // Handle click para passar que o usuário está logado, e para voltar a home.
-    function handleClick(nome, idUsuario) {
-        props.handleResult(nome, idUsuario);
-        navigate("/");
+        }
     }
-
-    const fetchCheckUser = async () => {
-        checkUser(
-            email, 
-            senha, 
-            setUserId
-        )
-    }
-
-    // useEffect(() => {
-    //     fetchCheckUser();
-    // }, [])
 
     // Tela =============================================================================================================
 
@@ -119,7 +81,7 @@ export default function UsuarioLogin(props) {
                     </div>
 
                     {/* Em caso de usuário não reconhecido */}
-                    <p className={mensagemSemCad}>Usuário não reconhecido</p>
+                    <p className={mensagemSemCad}>Email ou senha incorretas</p>
                 </form>
 
                 <div className={styles.conteinerLoginButton}>
