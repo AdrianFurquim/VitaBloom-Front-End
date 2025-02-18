@@ -1,20 +1,23 @@
 import { createContext } from "react";
 import UserHook from "./hooks/user";
 import ProductHook from "./hooks/product";
+import useAuth from "./hooks/useAuth";
 
 const Context = createContext();
 
 function AuthProvider({ children }) {
     // Lista de váriaveis
     const {
-        userId, 
-        setUserId,
-        userName, 
-        setUserName, 
-        userEmail, 
-        setUserEmail, 
-        userPassword,
-        setUserPassword
+        userInfos, 
+        setUserInfos, 
+        loading, 
+        setLoading,
+        handleLogin
+    } = useAuth();
+
+    const {
+        userLogin, 
+        setUserLogin
     } = UserHook();
 
     const {
@@ -27,14 +30,13 @@ function AuthProvider({ children }) {
     return (
         <Context.Provider 
             value={{
-                userId, 
-                setUserId,
-                userName, 
-                setUserName, 
-                userEmail, 
-                setUserEmail, 
-                userPassword,
-                setUserPassword,
+                userInfos, 
+                setUserInfos, 
+                loading, 
+                setLoading,
+                handleLogin,
+                userLogin, 
+                setUserLogin,
                 productList, 
                 setProductList, 
                 productListOffer, 

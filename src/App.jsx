@@ -24,11 +24,11 @@ function App() {
   // Tela =============================================================================================================
 
   return (
-    <AuthProvider>
-      <BrowserRouter>
+    <BrowserRouter>
+      <AuthProvider>
           <RoutesComp />
-        </BrowserRouter>
-    </AuthProvider>
+      </AuthProvider>
+    </BrowserRouter>
   )
 }
 

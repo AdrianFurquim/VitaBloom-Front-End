@@ -5,6 +5,7 @@ export default function UserHook() {
     const [userName, setUserName] = useState("");
     const [userEmail, setUserEmail] = useState("");
     const [userPassword, setUserPassword] = useState("");
+    const [userLogin, setUserLogin] = useState([])
 
 
     return {
@@ -15,7 +16,9 @@ export default function UserHook() {
         userEmail, 
         setUserEmail, 
         userPassword,
-        setUserPassword
+        setUserPassword, 
+        userLogin, 
+        setUserLogin
     };
 }
 
