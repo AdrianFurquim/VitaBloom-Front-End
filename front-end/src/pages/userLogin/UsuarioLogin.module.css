@@ -82,8 +82,14 @@ input:active, input:focus{
     cursor: pointer;
 }
 
-.mensagem_error{
+.message{
     display: none;
+    color: red;
+    font-size: 12px;
+}
+
+.message_error{
+    display: block;
     color: red;
     font-size: 12px;
 }

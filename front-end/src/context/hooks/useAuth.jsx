@@ -13,8 +13,10 @@ export default function useAuth() {
             let { data } = await Api.get(`/vitabloom/usuarios/verificar/${email}/${pass}`);
             setUserInfos(data);
 
-            // Se o login for bem-sucedido, redireciona para a página inicial
-            navigate("/");
+            if(data){
+                navigate("/");
+            }
+
         } catch (error) {
             console.error("Erro ao fazer login:", error);
         } finally {

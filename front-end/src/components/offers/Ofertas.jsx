@@ -52,7 +52,6 @@ export default function Ofertas({idProduto}) {
             })
             .then((resp) => resp.json())
             .then((data) => {
-                console.log("Dados recebidos:", data);
             })
             .catch((err) => {
                 console.log("Erro na requisição:", err);
