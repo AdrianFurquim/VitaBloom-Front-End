@@ -15,56 +15,51 @@ import greenAplleRevive from "../../assets/img/produto_maca_1.png"
 import strawberryKiss from "../../assets/img/produto_morango_1.png"
 import berryFreshness from "../../assets/img/produto_morango_5.png"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import { Link } from "react-router-dom"
+import { Context } from "../../context"
+import { getItensCart } from "../../servises/cart/cart"
 
-export default function Carrinho({idUsuario}){
+export default function Carrinho(){
 
     // Váriaveis =============================================================================================================
-    const [itensCarrinho, setItensCarrinho] = useState([]);
-    const [usuario, setUsuario] = useState([]);
+    const [isItenCarrinho, setIsItensCarrinho] = useState(false)
 
-    // Funções =============================================================================================================
-    
-    // Verificação para se o usuário realizou o Login.
-    if (!idUsuario) {
-        console.log("Não foi cadastrado nenhum usuário");
-    }else{
-        // Atualiza e pega os dados do usuário que está logado.
-        useEffect(() => {
-            setTimeout(() => {
-                fetch(`http://localhost:8443/vitabloom/usuarios/listarid/${idUsuario}`, {
-                    method: "GET",
-                    headers: {
-                        "content-type": "application/json"
-                    }
-                })
-                .then((resp) => resp.json())
-                .then((data) => {
-                    setUsuario(data);
-                    setItensCarrinho(data.carrinho.itens);
-                })
-                .catch((err) => {
-                    console.log("Erro na requisição:", err);
-                });
-            }, 100);
-        }, []);    
+    const {
+        itensCart, 
+        setItensCart, 
+        userInfos, 
+    } = useContext(Context);
+
+    console.log(userInfos)
+
+    const fetchItensCart = async () => {
+        getItensCart(
+            userInfos.idUsuario, 
+            setItensCart
+        )
     }
 
-    // Função para realizar a tela de acordo com os itens no carrinho do usuário.
-    // Caso não tenha carrinho, caso não tenha retorna avisando, ou que não foi logado.
-    // ou que não existe nenhum item no carrinho.
+    useEffect(() => {
+        fetchItensCart();
+        if(itensCart){
+            setIsItensCarrinho(true);
+        }else{
+            setIsItensCarrinho(false);
+        }
+    }, []);
+
     const renderizarCarrinho = () => {
-        if (itensCarrinho.length != 0) {
+        if (itensCart.length != 0) {
             return (
                 <>
                     {/* Loop para exibir os itens do carrinho do usuário logado */}
-                    {itensCarrinho.map(item => (
+                    {itensCart.map(item => (
                         // Usando identificador para Loop.
                         <div key={item.produtoId} className={styles.conteiner_itens_carrinho}>
                             <ProdutoCarrinho 
                                 idItem={item.id}
-                                idUsuario={usuario.idUsuario}
+                                idUsuario={userInfos.idUsuario}
                                 nome={item.produto.nomeProduto} 
                                 valor={item.produto.valorProduto * item.quantidade} 
                                 quantidade={item.quantidade} 
@@ -80,7 +75,7 @@ export default function Carrinho({idUsuario}){
         } else {
             // Caso o usuário não esteja logado.
             // Ou não exista nenhum produto no carrinho.
-            if (!idUsuario) {
+            if (!userInfos) {
                 return (
                     <div className={styles.conteinerCarMessageLogin}>
                         <h2 className={styles.mensagem_carrinho}>Por favor, realize o <Link to="/usuario/login">login</Link> em nossa plataforma</h2>;
