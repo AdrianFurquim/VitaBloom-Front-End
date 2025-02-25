@@ -40,7 +40,7 @@ export default function Catalogo({idUsuario}){
 
     useEffect(() => {
         fetchProducts();
-    }, [])
+    }, []);
 
     // Função para obter a imagem com base no ID do produto.
     const getImagemProduto = (id) => {

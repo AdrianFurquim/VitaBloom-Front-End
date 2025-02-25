@@ -2,6 +2,7 @@ import { createContext } from "react";
 import UserHook from "./hooks/user";
 import ProductHook from "./hooks/product";
 import useAuth from "./hooks/useAuth";
+import CartHook from "./hooks/cart";
 
 const Context = createContext();
 
@@ -27,6 +28,13 @@ function AuthProvider({ children }) {
         setProductListOffer
     } = ProductHook();
 
+    const {
+        itensCart, 
+        setItensCart, 
+        totalItensCart, 
+        setTotalItensCart
+    } = CartHook();
+
     return (
         <Context.Provider 
             value={{
@@ -40,7 +48,11 @@ function AuthProvider({ children }) {
                 productList, 
                 setProductList, 
                 productListOffer, 
-                setProductListOffer
+                setProductListOffer, 
+                itensCart, 
+                setItensCart, 
+                totalItensCart, 
+                setTotalItensCart
             }}>
             {children}
         </Context.Provider>
