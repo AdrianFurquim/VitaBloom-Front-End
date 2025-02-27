@@ -24,6 +24,7 @@ export default function Carrinho(){
 
     // Váriaveis =============================================================================================================
     const [isItenCarrinho, setIsItensCarrinho] = useState(false)
+    const [valueTotalCart, setValueTotalCart] = useState(0);
 
     const {
         itensCart, 
@@ -47,30 +48,41 @@ export default function Carrinho(){
         }else{
             setIsItensCarrinho(false);
         }
+        let total = 0;
+        for (let index = 0; index < itensCart.length; index++) {
+            total += itensCart[index].produto.valorProduto * itensCart[index].quantidade;
+        }
+        setValueTotalCart(parseFloat(total.toFixed(2)));
     }, []);
 
     const renderizarCarrinho = () => {
         if (itensCart.length != 0) {
             return (
-                <>
+                <section className={styles.conteinerCart}>
                     {/* Loop para exibir os itens do carrinho do usuário logado */}
-                    {itensCart.map(item => (
-                        // Usando identificador para Loop.
-                        <div key={item.produtoId} className={styles.conteiner_itens_carrinho}>
-                            <ProdutoCarrinho 
-                                idItem={item.id}
-                                idUsuario={userInfos.idUsuario}
-                                nome={item.produto.nomeProduto} 
-                                valor={item.produto.valorProduto * item.quantidade} 
-                                quantidade={item.quantidade} 
-                                imagem={getImagemProduto(item.produto.idProduto)}
-                                idProduto={item.produto.idProduto}
-                                idCarrinho={item.produtoId}
-                                />
-                        </div>
-                    ))}
+                    <div className={styles.conteinerCartProducts}>
+                        {itensCart.map(item => (
+                            // Usando identificador para Loop.
+                            <div key={item.produtoId} className={styles.conteiner_itens_carrinho}>
+                                <ProdutoCarrinho 
+                                    idItem={item.id}
+                                    idUsuario={userInfos.idUsuario}
+                                    nome={item.produto.nomeProduto} 
+                                    valor={item.produto.valorProduto * item.quantidade} 
+                                    quantidade={item.quantidade} 
+                                    imagem={getImagemProduto(item.produto.idProduto)}
+                                    idProduto={item.produto.idProduto}
+                                    idCarrinho={item.produtoId}
+                                    />
+                            </div>
+                        ))}
+                    </div>
 
-                </>
+                    <div className={styles.conteinerCartValueCart}>
+                        <h1>Valor Total: { valueTotalCart }</h1>
+                    </div>
+
+                </section>
             )
         } else {
             // Caso o usuário não esteja logado.

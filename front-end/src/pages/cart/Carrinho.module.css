@@ -2,17 +2,17 @@
     margin: auto;
     margin-top: 0.75em;
     margin-bottom: 0.75em;
-    width: 90%;
     transition: 0.5s;
 }
 
-.conteiner_itens_carrinho:hover{
-    width: 95%;
-}
+/* .conteiner_itens_carrinho:hover{
+    width: 28%;
+} */
 
 .conteinerCarMessageLogin{
     min-height: 70%;
     display: flex;
+    justify-content: space-around;
 }
 
 .mensagem_carrinho{
@@ -26,6 +26,11 @@
     width: 50%;
 }
 
+.conteinerCartProducts{
+    width: 60%;
+    margin: auto;
+}
+
 .mensagem_carrinho a{
     color: #da9408;
     transition: 0.5s;
@@ -33,6 +38,16 @@
 
 .mensagem_carrinho a:hover{
     font-size: 1.2em;
+}
+
+.conteinerCart{
+    display: flex;
+}
+
+.conteinerCartValueCart{
+    width: 30%;
+    background-color: white;
+    margin: auto;
 }
 
 @media (max-width: 600px){
