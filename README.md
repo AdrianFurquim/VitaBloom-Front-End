@@ -1,12 +1,10 @@
-# Vita Bloom Front-End
-
-<h1 align="center">Vita Bloom README temporário</h1>
+<h1 align="center">Vita Bloom</h1>
 
 <div align="center">
   <img src="https://github.com/AdrianFurquim/VitaBloom-Back-End/assets/116688048/0b5a8582-c31e-45bb-93ea-67ed58191def" alt="logo Vita Bloom" />
 </div>
 
-Bem-vindo ao Front-End do site Vita Bloom! Abaixo estão detalhes sobre a estrutura do projeto, ideias e como iniciar a aplicação.
+Bem-vindo ao repositório do site Vita Bloom! Abaixo estão detalhes sobre a estrutura do projeto, ideias e como iniciar a aplicação.
 
 ## Tecnologias Utilizadas
 
@@ -14,15 +12,22 @@ Bem-vindo ao Front-End do site Vita Bloom! Abaixo estão detalhes sobre a estrut
 - **React.js**
 - **React-Dom**
 - **React-Router-Dom**
-- **API em Java**
+- **React-Hooks**
+
+### Back-End
+- **Java**
+- **Spring Boot**
+- **Spring Security**
+- **CRUD**
+- **MVC (Model, View, Controller)**
+- **Maven**
+- **MySQL/PostgreSQL**
 
 <h4 align="center">🚧 Projeto em andamento 🚧</h4>
 
-O projeto possui seu Back-End em Java com a ferramenta Spring Boot, disponível no repositório: [Repositório Back-End](https://github.com/AdrianFurquim/VitaBloom-Back-End.git).
+**Lembrando que o projeto Vita Bloom é apenas um site pessoal para desenvolvimento de habilidades e prática. Não sendo um site real de e-comerce e venda de produtos.**
 
-### Visualização do Projeto
-
-Site para visualização do Projeto de Front-End Vita Bloom: [Vita Bloom Visualização](https://vitabloom.netlify.app/)
+Projeto em remodelação e atualizações. Algumas funções podem não estarem funcionando, ou ainda não foram implementadas. 
 
 ## O que é Vita Bloom?
 
@@ -37,13 +42,15 @@ Na Vita Bloom, cada produto é cuidadosamente formulado com ingredientes naturai
 Este é um site React com integração ao banco de dados e back-end em Java. Portanto, é necessário que você tenha uma máquina com as dependências para rodar Java e o banco de dados.
 
 1. **Ferramentas Necessárias:**
-   - IDE com suporte ao Java (ex: IntelliJ, Eclipse).
-   - MySQL para o banco de dados (pode ser configurado usando XAMPP ou outra ferramenta).
+   - IDE com suporte ao Java (ex: IntelliJ, Eclipse, VSCode, todos com extenções para Java).
+   - MySQL ou PostgreSQL para o banco de dados (pode ser configurado usando XAMPP ou outra ferramenta para servidores SQL).
 
 2. **Configuração do Back-End:**
-   - Clone o repositório do Back-End: [Repositório Back-End](https://github.com/AdrianFurquim/VitaBloom-Back-End.git).
-   - Importe o projeto em sua IDE Java.
-   - Configure o banco de dados MySQL e importe o schema disponível no repositório do Back-End.
+   - Clone o repositório.
+   - Importe o projeto em sua IDE.
+   - Configure o banco de dados MySQL ou PostgreSQL em back-end/src/main/resources. Deixe apenas as informações de acordo com qual banco irá ser utilizado.
+   - Importe o schema disponível na pasta back-end chamado vita_bloom.sql em seu sistema de gerenciamento de banco de dados.
+   - Abra um arquivo no back-end que seja .java.
    - Execute a aplicação Java para iniciar o servidor.
 
 ### Passo 2: Configuração do Front-End
@@ -52,9 +59,12 @@ Este é um site React com integração ao banco de dados e back-end em Java. Por
    - Node.js e npm instalados no computador.
 
 2. **Iniciando o Projeto:**
-   - Clone este repositório do Front-End.
-   - Abra o projeto em sua IDE de preferência (ex: Visual Studio Code).
+   - Clone este repositório.
+   - Abra o projeto em sua IDE.
    - No terminal, navegue até a pasta do projeto.
+     ```bash
+     cd ./front-end
+     ```
    - Execute o comando:
      ```bash
      npm install
