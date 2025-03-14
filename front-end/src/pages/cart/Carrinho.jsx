@@ -25,13 +25,21 @@ export default function Carrinho(){
     // Váriaveis =============================================================================================================
     const [isItenCarrinho, setIsItensCarrinho] = useState(false)
 
+    const [valueTotalCart, setValueTotalCart] = useState(0);
+    const [valueCupom, setValueCupom] = useState(0);
+    const [valueNotCupom, setValueNotCupom] = useState();
+    const [cupom, setCupom] = useState();
+    const [msgOldValue, setMsgOldValue] = useState(styles.msgDisplayNone);
+    const [msgNewValue, setMsgNewValue] = useState(styles.msgDisplayNone);
+    const [msgNotCupom, setMsgNotCupom] = useState(styles.msgNotCupom);
+    const [msgInvalidCupom, setMsgInvalidCupom] = useState(styles.msgDisplayNone);
+    const cupons = ["CUBONLI", "10%OFF", "VITABLOOM", "PRIMEIRACOMPRA"]
+
     const {
         itensCart, 
         setItensCart, 
         userInfos, 
     } = useContext(Context);
-
-    console.log(userInfos)
 
     const fetchItensCart = async () => {
         getItensCart(
@@ -47,30 +55,119 @@ export default function Carrinho(){
         }else{
             setIsItensCarrinho(false);
         }
-    }, []);
+        let total = 0;
+        for (let index = 0; index < itensCart.length; index++) {
+            total += itensCart[index].produto.valorProduto * itensCart[index].quantidade;
+        }
+
+        aplicaCupom(total);
+    }, [itensCart]);
+
+    function aplicaCupom(total) {
+        if(valueTotalCart >= 400){
+            switch (cupom) {
+                case cupons[0]:
+                    setMsgOldValue(styles.msgOldValue);
+                    setMsgNewValue(styles.msgNewValue);
+                    setMsgNotCupom(styles.msgDisplayNone);
+                    setMsgInvalidCupom(styles.msgDisplayNone);
+
+                    setValueNotCupom(parseFloat(total.toFixed(2)));
+                    total = total - 200;
+                    setValueTotalCart(parseFloat(total.toFixed(2)));
+                    break;
+                case cupons[1]:
+                    setMsgOldValue(styles.msgOldValue);
+                    setMsgNewValue(styles.msgNewValue);
+                    setMsgNotCupom(styles.msgDisplayNone);
+                    setMsgInvalidCupom(styles.msgDisplayNone);
+
+                    setValueNotCupom(parseFloat(total.toFixed(2)));
+                    total = total - (total * 0.1);
+                    setValueTotalCart(parseFloat(total.toFixed(2)));
+                    break;
+                case cupons[2]:
+                    setMsgOldValue(styles.msgOldValue);
+                    setMsgNewValue(styles.msgNewValue);
+                    setMsgNotCupom(styles.msgDisplayNone);
+                    setMsgInvalidCupom(styles.msgDisplayNone);
+
+                    setValueNotCupom(parseFloat(total.toFixed(2)));
+                    total = total - 150;
+                    setValueTotalCart(parseFloat(total.toFixed(2)));
+                    break;
+                case cupons[3]:
+                    setMsgOldValue(styles.msgOldValue);
+                    setMsgNewValue(styles.msgNewValue);
+                    setMsgNotCupom(styles.msgDisplayNone);
+                    setMsgInvalidCupom(styles.msgDisplayNone);
+
+                    setValueNotCupom(parseFloat(total.toFixed(2)));
+                    total = total - 100;
+                    setValueTotalCart(parseFloat(total.toFixed(2)));
+                    break;
+                default:
+                    setMsgOldValue(styles.msgDisplayNone);
+                    setMsgNewValue(styles.msgDisplayNone);
+                    setMsgNotCupom(styles.msgNotCupom);
+                    setMsgInvalidCupom(styles.msgDisplayNone)
+                    setValueTotalCart(parseFloat(total.toFixed(2)));
+                    break;
+            }
+        } else {
+            setMsgOldValue(styles.msgDisplayNone);
+            setMsgNewValue(styles.msgDisplayNone);
+            setMsgNotCupom(styles.msgNotCupom);
+            setMsgInvalidCupom(styles.msgDisplayNone);
+            setValueTotalCart(parseFloat(total.toFixed(2)));
+        }
+    }
 
     const renderizarCarrinho = () => {
         if (itensCart.length != 0) {
             return (
-                <>
+                <section className={styles.conteinerCart}>
                     {/* Loop para exibir os itens do carrinho do usuário logado */}
-                    {itensCart.map(item => (
-                        // Usando identificador para Loop.
-                        <div key={item.produtoId} className={styles.conteiner_itens_carrinho}>
-                            <ProdutoCarrinho 
-                                idItem={item.id}
-                                idUsuario={userInfos.idUsuario}
-                                nome={item.produto.nomeProduto} 
-                                valor={item.produto.valorProduto * item.quantidade} 
-                                quantidade={item.quantidade} 
-                                imagem={getImagemProduto(item.produto.idProduto)}
-                                idProduto={item.produto.idProduto}
-                                idCarrinho={item.produtoId}
-                                />
-                        </div>
-                    ))}
+                    <div className={styles.conteinerCartProducts}>
+                        {itensCart.map(item => (
+                            // Usando identificador para Loop.
+                            <div key={item.produtoId} className={styles.conteiner_itens_carrinho}>
+                                <ProdutoCarrinho 
+                                    idItem={item.id}
+                                    idUsuario={userInfos.idUsuario}
+                                    nome={item.produto.nomeProduto} 
+                                    valor={item.produto.valorProduto * item.quantidade} 
+                                    quantidade={item.quantidade} 
+                                    imagem={getImagemProduto(item.produto.idProduto)}
+                                    idProduto={item.produto.idProduto}
+                                    idCarrinho={item.produtoId}
+                                    />
+                            </div>
+                        ))}
+                    </div>
 
-                </>
+                    <div className={styles.conteinerCartValueTotal}>
+                        <h1 className={styles.conteinerCartValueTotalTitle} >Resumo do Carrinho</h1>
+                        <div className={styles.conteinerCartValueTotalPrice}>
+                            <h1>Valor Total do carrinho: </h1>
+                            <h3 className={msgOldValue}>RS: { valueNotCupom }</h3>
+                            <h1 className={msgNewValue}>R$: { valueTotalCart }</h1>
+                            <h1 className={msgNotCupom}>R$: { valueTotalCart }</h1>
+                        </div>
+
+                        <div className={styles.conteinerCartValueTotalCupom}>
+                            <label htmlFor="cupom">Insira um cupom válido: </label><br />
+                            <input type="text" name="cupom" id="cupom" onChange={(e) => setCupom(e.target.value)}/>
+                            <p className={msgInvalidCupom}>Este cupom é inválido</p>
+                        </div>
+
+                        <div className={styles.conteinerCartValueTotalButtons}>
+                            <button type="button">Comprar</button>
+                        </div>
+
+                    </div>
+
+                </section>
             )
         } else {
             // Caso o usuário não esteja logado.

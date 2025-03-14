@@ -2,17 +2,17 @@
     margin: auto;
     margin-top: 0.75em;
     margin-bottom: 0.75em;
-    width: 90%;
     transition: 0.5s;
 }
 
-.conteiner_itens_carrinho:hover{
-    width: 95%;
-}
+/* .conteiner_itens_carrinho:hover{
+    width: 28%;
+} */
 
 .conteinerCarMessageLogin{
     min-height: 70%;
     display: flex;
+    justify-content: space-around;
 }
 
 .mensagem_carrinho{
@@ -26,6 +26,11 @@
     width: 50%;
 }
 
+.conteinerCartProducts{
+    width: 60%;
+    margin: auto;
+}
+
 .mensagem_carrinho a{
     color: #da9408;
     transition: 0.5s;
@@ -33,6 +38,93 @@
 
 .mensagem_carrinho a:hover{
     font-size: 1.2em;
+}
+
+.conteinerCart{
+    display: flex;
+}
+
+.conteinerCartValueTotal{
+    width: 30%;
+    background-color: white;
+    margin: auto;
+    padding: 17px;
+}
+
+.conteinerCartValueTotalTitle{
+    color: #da9408;
+    padding: 0 0.2em;
+    background-color: #FFE9C7;
+    border-radius: 10px;
+}
+
+.conteinerCartValueTotalPrice{
+    margin-top: 2em;
+}
+
+.conteinerCartValueTotalCupom{
+    margin-top: 2em;
+}
+
+.conteinerCartValueTotalCupom input{
+    width: 60%;
+}
+
+.conteinerCartValueTotalCupom button{
+    padding: 6px;
+    border: none;
+    background-color: #ffd98c;
+    color: black;
+    text-align: center;
+    font-size: 1.02em;
+    margin-left: 1em;
+    cursor: pointer;
+}
+
+.conteinerCartValueTotalButtons{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 4em;
+}
+
+.conteinerCartValueTotalButtons button{
+    padding: 8px;
+    border: none;
+    background-color: #da9408;
+    color: white;
+    text-align: center;
+    font-size: 1.02em;
+}
+
+.conteinerCartValueTotalButtons button:hover{
+    cursor: pointer;
+    padding: 8px;
+    border: none;
+    background-color: #da9408;
+    color: white;
+    text-align: center;
+    font-size: 1.02em;
+}
+
+.msgDisplayNone{
+    display: none;
+}
+
+.msgOldValue{
+    color: red;
+    margin-top: 0px;
+    margin-left: 0px;
+    text-decoration: line-through;
+}
+
+.msgNewValue{
+    margin-left: 0.2em;
+    color: rgb(137, 192, 55);
+}
+
+.msgInvalidCupom{
+    color: red;
+    margin-left: 0.2em;
 }
 
 @media (max-width: 600px){
