@@ -8,7 +8,6 @@ async function getItensCart(
     try {
         const response = await Api.get(`/vitabloom/usuarios/listarid/${userId}`);
         setItensCart(response.data.carrinho.itens);
-        console.log(response.data.carrinho.itens);
     } catch (err) {
         console.log(err)
     }
